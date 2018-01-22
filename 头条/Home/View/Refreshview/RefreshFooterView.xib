@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RefreshFooterView" customModule="头条" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eXo-t4-bHk">
+                    <rect key="frame" x="214" y="12" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="QBx-MV-cC1"/>
+                        <constraint firstAttribute="width" constant="20" id="W48-UC-cUc"/>
+                    </constraints>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在努力加载" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4r-uJ-lym">
+                    <rect key="frame" x="139" y="12" width="56" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="0OJ-QD-EZB"/>
+                        <constraint firstAttribute="width" constant="56" id="USv-KP-OyU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="eXo-t4-bHk" secondAttribute="bottom" constant="12" id="0PU-Ww-Hgi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="G4r-uJ-lym" secondAttribute="bottom" constant="12" id="75r-3M-nFF"/>
+                <constraint firstItem="G4r-uJ-lym" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="Q4T-rS-YqM"/>
+                <constraint firstItem="eXo-t4-bHk" firstAttribute="leading" secondItem="G4r-uJ-lym" secondAttribute="trailing" constant="19" id="Rkg-Pk-A9h"/>
+                <constraint firstItem="eXo-t4-bHk" firstAttribute="bottom" secondItem="G4r-uJ-lym" secondAttribute="bottom" id="TTm-h7-S8F"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eXo-t4-bHk" secondAttribute="trailing" constant="141" id="U2R-JT-1Nd"/>
+                <constraint firstItem="eXo-t4-bHk" firstAttribute="top" secondItem="G4r-uJ-lym" secondAttribute="top" id="ZHL-et-bBe"/>
+                <constraint firstItem="eXo-t4-bHk" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="iKd-aQ-9G0"/>
+                <constraint firstItem="eXo-t4-bHk" firstAttribute="leading" secondItem="G4r-uJ-lym" secondAttribute="trailing" constant="19" id="yGz-0E-JJX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="35.5" y="55"/>
+        </view>
+    </objects>
+</document>

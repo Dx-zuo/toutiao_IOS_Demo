@@ -9,18 +9,18 @@
 import UIKit
 
 class MainViewController: UITabBarController,UITabBarControllerDelegate {
-    private let NewsVC = HomeNewsTableViewController()
+    private let NewsVC = HomeNewsViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         AddHomeUI()
     }
     func AddHomeUI() {
-        addChildViewController(HomeNewsTableViewController(), title: "首页", imageName: "home_tabbar_32x32_", selectedImage: "home_tabbar_press_32x32_")
+        addChildViewController(HomeNewsViewController(), title: "首页", imageName: #imageLiteral(resourceName: "home_tabbar_night_32x32_"), selectedImage: #imageLiteral(resourceName: "home_tabbar_night_32x32_"))
     }
-    private func addChildViewController(_ childController: UIViewController, title: String, imageName: String, selectedImage: String) {
-        childController.tabBarItem.image = UIImage(named: imageName)
-        childController.tabBarItem.selectedImage = UIImage(named:selectedImage)
+    private func addChildViewController(_ childController: UIViewController, title: String, imageName: UIImage, selectedImage: UIImage) {
+        childController.tabBarItem.image = imageName
+        childController.tabBarItem.selectedImage = selectedImage
         childController.title = title
         let navC = MainNavigationController(rootViewController: childController)
         navC.navigationItem.title = title

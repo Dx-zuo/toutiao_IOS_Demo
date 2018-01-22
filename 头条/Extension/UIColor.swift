@@ -38,6 +38,26 @@ extension UIColor {
     class func randomColor() -> UIColor {
         return UIColor(r: CGFloat(arc4random_uniform(256)), g: CGFloat(arc4random_uniform(256)), b: CGFloat(arc4random_uniform(256)))
     }
-    
+    class func colorWithHexString (_ hex :String, alpha: CGFloat) -> UIColor
+    {
+        var cString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        if (cString.hasPrefix("#"))
+        {
+            let startIndex = cString.characters.index(cString.startIndex, offsetBy: 1)
+            cString = cString.substring(from: startIndex)
+        }
+        if (cString.characters.count != 6)
+        {
+            return UIColor.white
+        }
+        var rgbValue: UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: alpha
+        )
+    }
     
 }

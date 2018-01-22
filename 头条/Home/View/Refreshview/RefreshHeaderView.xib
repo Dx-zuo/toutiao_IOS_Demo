@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="h6W-2Z-gj6" customClass="RefreshHeaderView" customModule="头条" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropdown_loading_010" translatesAutoresizingMaskIntoConstraints="NO" id="ulL-Km-jCp">
+                    <rect key="frame" x="175" y="33" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="1Q6-c6-EaW"/>
+                        <constraint firstAttribute="height" constant="25" id="Leb-Be-goG"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下拉推荐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zv-S9-03I">
+                    <rect key="frame" x="169" y="63" width="37" height="11"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="11" id="KHo-0C-U2F"/>
+                        <constraint firstAttribute="width" constant="37" id="hg4-S3-QxN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ulL-Km-jCp" firstAttribute="centerX" secondItem="h6W-2Z-gj6" secondAttribute="centerX" id="42e-U2-6Ea"/>
+                <constraint firstItem="ulL-Km-jCp" firstAttribute="centerY" secondItem="h6W-2Z-gj6" secondAttribute="centerY" id="8M7-Ws-wlk"/>
+                <constraint firstItem="8Zv-S9-03I" firstAttribute="centerX" secondItem="ulL-Km-jCp" secondAttribute="centerX" id="WLU-AU-4mP"/>
+                <constraint firstItem="8Zv-S9-03I" firstAttribute="top" secondItem="ulL-Km-jCp" secondAttribute="bottom" constant="5" id="sJU-ah-fHS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="bdR-ZF-dvR"/>
+            <connections>
+                <outlet property="Image" destination="ulL-Km-jCp" id="R5I-U5-eCS"/>
+                <outlet property="Title" destination="8Zv-S9-03I" id="PAq-hO-ctF"/>
+            </connections>
+            <point key="canvasLocation" x="44.5" y="-665"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="dropdown_loading_010" width="25" height="25"/>
+    </resources>
+</document>

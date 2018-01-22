@@ -39,9 +39,6 @@ extension HomeSearchViewController{
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.barTintColor = UIColor.white
         view.backgroundColor = UIColor.white
-        //
-        //
-        
     }
     
 }

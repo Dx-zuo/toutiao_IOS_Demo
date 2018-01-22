@@ -19,6 +19,12 @@ class HomeSearchBar: UIView {
         searchIcon.contentMode = .center
         textField.leftView = searchIcon
         textField.leftViewMode = .always
+        textField.backgroundColor = UIColor.white
+        textField.layer.masksToBounds = true
+        textField.layer.cornerRadius = 6
+        ToRequset.GetsearchTitle(comletionHandler: { (title) in
+            textField.placeholder = title
+        })
         return textField
     }()
     
@@ -26,7 +32,10 @@ class HomeSearchBar: UIView {
         super.init(frame: frame)
         addSubview(searchFiled)
         searchFiled.snp.makeConstraints { (make) in
-            make.edges.equalTo(self)
+            make.left.equalTo(self).offset(5)
+            make.right.equalTo(self).offset(-5)
+            make.top.equalTo(self).offset(5)
+            make.bottom.equalTo(self).offset(-5)
         }
     }
     
@@ -36,5 +45,15 @@ class HomeSearchBar: UIView {
     
     class func searchBar() -> HomeSearchBar {
         return HomeSearchBar()
+    }
+    /// 重写frame
+    override var frame: CGRect {
+        didSet {
+            let newFrame = CGRect(x: 0, y: 0, width: Con.screenWidth/2, height: 30)
+            super.frame = newFrame
+        }
+    }
+    override var intrinsicContentSize: CGSize {
+        return UILayoutFittingExpandedSize
     }
 }
