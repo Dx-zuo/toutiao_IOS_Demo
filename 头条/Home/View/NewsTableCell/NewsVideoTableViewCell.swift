@@ -11,10 +11,6 @@ import UIKit
 class NewsVideoTableViewCell: UITableViewCell {
     var newsmodel : HomeNewsModel?{
         didSet{
-            title.text = newsmodel?.title
-            source.text = newsmodel?.source
-            comment_count.text = (newsmodel?.commentCount)! + "评论"
-            Time.text = newsmodel?.Time
         }
     }
 

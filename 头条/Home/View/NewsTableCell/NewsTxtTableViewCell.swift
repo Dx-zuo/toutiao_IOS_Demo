@@ -18,8 +18,11 @@ class NewsTxtTableViewCell: UITableViewCell {
             }else {
                 stick_label.text = newsmodel?.stick_label
             }
-            comment_count.text = (newsmodel?.commentCount)! + "评论"
+            comment_count.text = "\(JSON(newsmodel?.commentCount!).intValue as Int) 评论"
             Time.text = newsmodel?.Time
+            if title.text == nil ||  title.text == ""{
+                Log(message: newsmodel?.jsondata)
+            }
         }
     }
 

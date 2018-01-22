@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Kingfisher
 class NewsRightImageViewCell: UITableViewCell {
     var newsmodel : HomeNewsModel?{
         didSet{
@@ -15,9 +15,11 @@ class NewsRightImageViewCell: UITableViewCell {
             source.text = newsmodel?.source
             comment_count.text = (newsmodel?.commentCount)! + "评论"
             Time.text = newsmodel?.Time
+            //self.image1.kf.setImage(with: URL(string: (newsmodel?.image)!))
         }
     }
 
+    @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var source: UILabel!
     @IBOutlet weak var comment_count: UILabel!

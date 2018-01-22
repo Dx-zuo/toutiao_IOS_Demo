@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,9 +40,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刚刚" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jut-z6-3TV">
                         <rect key="frame" x="147" y="54" width="25" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="25" id="PXf-dI-6ug"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -63,26 +61,25 @@
                 <constraints>
                     <constraint firstItem="yOO-Gw-Blm" firstAttribute="top" secondItem="KUd-Vh-BEI" secondAttribute="bottom" id="0fG-9n-6hw"/>
                     <constraint firstAttribute="trailing" secondItem="yEZ-vY-vnc" secondAttribute="trailing" constant="15" id="78I-f9-Yst"/>
-                    <constraint firstItem="jut-z6-3TV" firstAttribute="leading" secondItem="CSN-9U-USB" secondAttribute="trailing" constant="5" id="8o2-cA-MYE"/>
                     <constraint firstAttribute="bottom" secondItem="yEZ-vY-vnc" secondAttribute="bottom" constant="8.5" id="BaK-Fh-gDy"/>
+                    <constraint firstItem="jut-z6-3TV" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="DfP-LG-XCe"/>
                     <constraint firstItem="CSN-9U-USB" firstAttribute="top" secondItem="KUd-Vh-BEI" secondAttribute="bottom" id="Ftm-EK-fBe"/>
                     <constraint firstItem="yOO-Gw-Blm" firstAttribute="leading" secondItem="NgP-kl-spd" secondAttribute="trailing" constant="5" id="ILL-sl-ely"/>
+                    <constraint firstItem="jut-z6-3TV" firstAttribute="baseline" secondItem="CSN-9U-USB" secondAttribute="baseline" id="RtW-63-2mN"/>
                     <constraint firstItem="KUd-Vh-BEI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="SnF-Z8-FoI"/>
                     <constraint firstAttribute="bottom" secondItem="CSN-9U-USB" secondAttribute="bottom" constant="8.5" id="UCr-F3-kAd"/>
                     <constraint firstItem="NgP-kl-spd" firstAttribute="top" secondItem="KUd-Vh-BEI" secondAttribute="bottom" id="V08-dF-S7C"/>
                     <constraint firstAttribute="bottom" secondItem="yOO-Gw-Blm" secondAttribute="bottom" constant="8.5" id="XIf-sJ-5Qy"/>
-                    <constraint firstItem="jut-z6-3TV" firstAttribute="top" secondItem="KUd-Vh-BEI" secondAttribute="bottom" id="aYs-o1-gkh"/>
                     <constraint firstItem="CSN-9U-USB" firstAttribute="leading" secondItem="yOO-Gw-Blm" secondAttribute="trailing" constant="5" id="bC7-5i-FP9"/>
                     <constraint firstItem="yEZ-vY-vnc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="65" id="cxN-JQ-ugj"/>
-                    <constraint firstAttribute="bottom" secondItem="jut-z6-3TV" secondAttribute="bottom" constant="8.5" id="feb-8N-L7Q"/>
                     <constraint firstItem="NgP-kl-spd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="hOD-Qd-d48"/>
                     <constraint firstAttribute="trailing" secondItem="KUd-Vh-BEI" secondAttribute="trailing" constant="45" id="jV0-aT-MzH"/>
                     <constraint firstItem="yOO-Gw-Blm" firstAttribute="leading" secondItem="NgP-kl-spd" secondAttribute="trailing" constant="5" id="mlD-cC-ldP"/>
                     <constraint firstAttribute="bottom" secondItem="KUd-Vh-BEI" secondAttribute="bottom" constant="29.5" id="p2K-Li-dR6"/>
+                    <constraint firstItem="jut-z6-3TV" firstAttribute="firstBaseline" secondItem="CSN-9U-USB" secondAttribute="firstBaseline" id="r3S-mS-EM1"/>
                     <constraint firstItem="KUd-Vh-BEI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="rQM-Gb-lce"/>
                     <constraint firstAttribute="bottom" secondItem="NgP-kl-spd" secondAttribute="bottom" constant="8.5" id="sgZ-fH-Pmv"/>
                     <constraint firstItem="CSN-9U-USB" firstAttribute="leading" secondItem="yOO-Gw-Blm" secondAttribute="trailing" constant="5" id="ucq-rS-RSO"/>
-                    <constraint firstItem="jut-z6-3TV" firstAttribute="leading" secondItem="CSN-9U-USB" secondAttribute="trailing" constant="5" id="vLS-zU-Qqg"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

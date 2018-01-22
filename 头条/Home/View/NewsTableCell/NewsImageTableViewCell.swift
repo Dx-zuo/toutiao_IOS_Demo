@@ -19,12 +19,11 @@ class NewsImageTableViewCell: UITableViewCell {
 //            guard  newsmodel?.image_list.count != nil else {
 //                return
 //            }
-           // print("newsmodel?.image_list",newsmodel?.image_list)
+            Log(message: newsmodel?.jsondata!["image_list"].count)
             if newsmodel?.image_list.count == 0 {return}
-            //print("newsmodel?.image_list[0])!",JSON(newsmodel?.image_list[0]).stringValue)
 //            Image1.kf.setImage(with:URL(string: JSON(newsmodel?.image_list[0]).stringValue))
-//            Image2.kf.setImage(with:URL(string: JSON(newsmodel?.image_list[0]).stringValue))
-//            Image3.kf.setImage(with:URL(string: JSON(newsmodel?.image_list[0]).stringValue))
+//            Image2.kf.setImage(with:URL(string: JSON(newsmodel?.image_list[1]).stringValue))
+//            Image3.kf.setImage(with:URL(string: JSON(newsmodel?.image_list[2]).stringValue))
         }
     }
 

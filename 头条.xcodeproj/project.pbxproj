@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F10D60D420164AD300FC7AD3 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F137F19120164A8900779CC5 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F10DB5ED201617660038A0A3 /* log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DB5EC201617660038A0A3 /* log.swift */; };
+		F10DB5F02016290F0038A0A3 /* NewsAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DB5EE2016290F0038A0A3 /* NewsAddTableViewCell.swift */; };
+		F10DB5F12016290F0038A0A3 /* NewsAddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10DB5EF2016290F0038A0A3 /* NewsAddTableViewCell.xib */; };
+		F137F19220164A8900779CC5 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F137F19120164A8900779CC5 /* Kingfisher.framework */; };
 		F1441DEE201085E600974225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1441DED201085E600974225 /* AppDelegate.swift */; };
 		F1441DF0201085E600974225 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1441DEF201085E600974225 /* MainViewController.swift */; };
 		F1441DF3201085E600974225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1441DF1201085E600974225 /* Main.storyboard */; };
@@ -85,8 +90,6 @@
 		F1DA0E432015BAF600E7A7D9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DA0E422015BAF600E7A7D9 /* Date.swift */; };
 		F1DA0E452015BD5400E7A7D9 /* WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DA0E442015BD5400E7A7D9 /* WebImage.swift */; };
 		F1DA0E4A2015CDC300E7A7D9 /* AImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DA0E492015CDC300E7A7D9 /* AImage.swift */; };
-		F1DA0E4E2015DE9F00E7A7D9 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DA0E4D2015DE9E00E7A7D9 /* Kingfisher.framework */; };
-		F1DA0E4F2015DE9F00E7A7D9 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1DA0E4D2015DE9E00E7A7D9 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F1E72BE020140F4A00E067D0 /* ToRequset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E72BDF20140F4A00E067D0 /* ToRequset.swift */; };
 		F1E72BE220142D6400E067D0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E72BE120142D6400E067D0 /* ContentView.swift */; };
 		F1E72BE520142D8600E067D0 /* ContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E72BE320142D8600E067D0 /* ContentViewCell.swift */; };
@@ -121,7 +124,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F1DA0E4F2015DE9F00E7A7D9 /* Kingfisher.framework in Embed Frameworks */,
+				F10D60D420164AD300FC7AD3 /* Kingfisher.framework in Embed Frameworks */,
 				F1DA0E332014E38C00E7A7D9 /* RevealServer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -130,6 +133,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F10DB5EC201617660038A0A3 /* log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = log.swift; sourceTree = "<group>"; };
+		F10DB5EE2016290F0038A0A3 /* NewsAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAddTableViewCell.swift; sourceTree = "<group>"; };
+		F10DB5EF2016290F0038A0A3 /* NewsAddTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsAddTableViewCell.xib; sourceTree = "<group>"; };
+		F137F19120164A8900779CC5 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../Library/Developer/Xcode/DerivedData/Kingfisher-cuyqnxgflfptbpeqyvgacjvymibo/Build/Products/Debug-iphonesimulator/Kingfisher.framework"; sourceTree = "<group>"; };
 		F1441DEA201085E600974225 /* 头条.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "头条.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1441DED201085E600974225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1441DEF201085E600974225 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -215,8 +222,6 @@
 		F1DA0E422015BAF600E7A7D9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F1DA0E442015BD5400E7A7D9 /* WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImage.swift; sourceTree = "<group>"; };
 		F1DA0E492015CDC300E7A7D9 /* AImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AImage.swift; sourceTree = "<group>"; };
-		F1DA0E4B2015DE6D00E7A7D9 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../Library/Developer/Xcode/DerivedData/Kingfisher-cuyqnxgflfptbpeqyvgacjvymibo/Build/Products/Debug-iphonesimulator/Kingfisher.framework"; sourceTree = "<group>"; };
-		F1DA0E4D2015DE9E00E7A7D9 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
 		F1E72BDF20140F4A00E067D0 /* ToRequset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToRequset.swift; sourceTree = "<group>"; };
 		F1E72BE120142D6400E067D0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F1E72BE320142D8600E067D0 /* ContentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewCell.swift; sourceTree = "<group>"; };
@@ -232,7 +237,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1DA0E4E2015DE9F00E7A7D9 /* Kingfisher.framework in Frameworks */,
+				F137F19220164A8900779CC5 /* Kingfisher.framework in Frameworks */,
 				F1DA0E392014E41C00E7A7D9 /* RevealServer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,7 +262,6 @@
 		F1441DE1201085E500974225 = {
 			isa = PBXGroup;
 			children = (
-				F1DA0E4D2015DE9E00E7A7D9 /* Kingfisher.framework */,
 				F1441DEC201085E600974225 /* 头条 */,
 				F1441E04201085E600974225 /* 头条Tests */,
 				F1441E0F201085E600974225 /* 头条UITests */,
@@ -325,6 +329,7 @@
 				F19A093F2010B6D400D4846A /* UIivew.swift */,
 				F19A098B2010D74100D4846A /* UIimage.swift */,
 				F1DA0E422015BAF600E7A7D9 /* Date.swift */,
+				F10DB5EC201617660038A0A3 /* log.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -464,7 +469,7 @@
 		F1DA0E162014BA6700E7A7D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F1DA0E4B2015DE6D00E7A7D9 /* Kingfisher.framework */,
+				F137F19120164A8900779CC5 /* Kingfisher.framework */,
 				F1DA0E382014E41C00E7A7D9 /* RevealServer.framework */,
 				F1DA0E172014BA6700E7A7D9 /* RevealServer.framework */,
 			);
@@ -503,6 +508,8 @@
 				F19A09A82010EEED00D4846A /* NewsUserTableViewCell.xib */,
 				F1DA0E3C2014F5ED00E7A7D9 /* NewsRightImageViewCell.swift */,
 				F1DA0E3D2014F5ED00E7A7D9 /* NewsRightImageViewCell.xib */,
+				F10DB5EE2016290F0038A0A3 /* NewsAddTableViewCell.swift */,
+				F10DB5EF2016290F0038A0A3 /* NewsAddTableViewCell.xib */,
 			);
 			path = NewsTableCell;
 			sourceTree = "<group>";
@@ -625,6 +632,7 @@
 				F19A09A22010EE7100D4846A /* NewsImageTableViewCell.xib in Resources */,
 				F19A09682010C2A900D4846A /* README.md in Resources */,
 				F19A09672010C2A900D4846A /* LICENSE in Resources */,
+				F10DB5F12016290F0038A0A3 /* NewsAddTableViewCell.xib in Resources */,
 				F1441DF3201085E600974225 /* Main.storyboard in Resources */,
 				F1E72BE620142D8600E067D0 /* ContentViewCell.xib in Resources */,
 				F1DA0E212014C1BC00E7A7D9 /* RefreshFooterView.xib in Resources */,
@@ -692,6 +700,7 @@
 				F19A0935201097B800D4846A /* SearchNavigationView.swift in Sources */,
 				F19A093E2010B11A00D4846A /* UIColor.swift in Sources */,
 				F1F43C7F2012D0B900EA6D02 /* HomePagesModel.swift in Sources */,
+				F10DB5ED201617660038A0A3 /* log.swift in Sources */,
 				F19A09402010B6D400D4846A /* UIivew.swift in Sources */,
 				F1DA0E1F2014BF3000E7A7D9 /* RefreshHeaderView.swift in Sources */,
 				F1E72BE020140F4A00E067D0 /* ToRequset.swift in Sources */,
@@ -719,6 +728,7 @@
 				F19A09692010C2A900D4846A /* Constraint.swift in Sources */,
 				F19A096C2010C2A900D4846A /* ConstraintConstantTarget.swift in Sources */,
 				F1DA0E232014C1C400E7A7D9 /* RefreshFooterView.swift in Sources */,
+				F10DB5F02016290F0038A0A3 /* NewsAddTableViewCell.swift in Sources */,
 				F19A099D2010EE5900D4846A /* NewsTxtTableViewCell.swift in Sources */,
 				F19A09AD2010FE1900D4846A /* HomeCellModel.swift in Sources */,
 			);

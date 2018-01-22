@@ -43,10 +43,10 @@ extension UIColor {
         var cString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         if (cString.hasPrefix("#"))
         {
-            let startIndex = cString.characters.index(cString.startIndex, offsetBy: 1)
-            cString = cString.substring(from: startIndex)
+            let startIndex = cString.index(cString.startIndex, offsetBy: 1)
+            cString = cString.substring(to: startIndex)
         }
-        if (cString.characters.count != 6)
+        if (cString.count != 6)
         {
             return UIColor.white
         }

@@ -82,13 +82,6 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <connections>
-                <outlet property="Time" destination="5aC-kO-S4L" id="rja-lA-2xZ"/>
-                <outlet property="Video" destination="rqr-15-epl" id="G4t-Na-CcI"/>
-                <outlet property="comment_count" destination="Fyd-fi-JcE" id="sc1-Qj-WDy"/>
-                <outlet property="source" destination="OKU-xh-0ds" id="zgt-qs-G2V"/>
-                <outlet property="title" destination="EZp-iW-obM" id="Zn7-Yl-d9q"/>
-            </connections>
             <point key="canvasLocation" x="34" y="144.5"/>
         </tableViewCell>
     </objects>

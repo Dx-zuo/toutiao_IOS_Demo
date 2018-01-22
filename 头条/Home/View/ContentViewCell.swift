@@ -15,7 +15,10 @@ class ContentViewCell: UICollectionViewCell {
     let NewsVideoTCell : String = "NewsVideoTCell"
     let NewsUserCell : String = "NewsUserCell"
     let NewsRightimageCell : String = "NewsRightimageCell"
+    let NewsAddCell : String = "NewsAddCell"
     
+    
+    var IsRef : Bool = true
     var NewModel :[HomeNewsModel] = []
     @IBOutlet weak var tableview: UITableView!
     /// 刷新头部
@@ -60,6 +63,7 @@ extension ContentViewCell{
         tableview.register(UINib(nibName: "NewsVideoTableViewCell", bundle: nil), forCellReuseIdentifier: NewsVideoTCell)
         tableview.register(UINib(nibName: "NewsUserTableViewCell", bundle: nil), forCellReuseIdentifier: NewsUserCell)
         tableview.register(UINib(nibName: "NewsRightImageViewCell", bundle: nil), forCellReuseIdentifier:NewsRightimageCell)
+        tableview.register(UINib(nibName: "NewsAddTableViewCell", bundle: nil), forCellReuseIdentifier:NewsAddCell)
         // 设置 tableView 底部\顶部内边距, 使Footer\ Header显示, 不反弹回去
         //tableview.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -60.0, right: 0)
         // 设置指示器的顶部间距
@@ -82,6 +86,15 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
     //界面滑动
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         refresh_HeaderView.SetStatus(scrollView.contentOffset)
+        if scrollView.contentOffset.y <= -60.0 &&  IsRef {
+            IsRef = false
+            ToRequset.GetLoadNews(category: "__all__", listCount: 20) { (data) in
+                self.NewModel += data
+                
+                self.tableview.reloadData()
+                self.IsRef = true
+            }
+        }
 //        print(scrollView.contentOffset)
 //        print(scrollView.contentSize)
     }
@@ -89,7 +102,7 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
         return NewModel.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : UITableViewCell?
+        let _ : UITableViewCell?
         guard NewModel[indexPath.row].type != nil else {
             return UITableViewCell()
         }
@@ -118,6 +131,10 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsTxtTCell, for: indexPath) as! NewsTxtTableViewCell
             cell.newsmodel = NewModel[indexPath.row]
             return cell
+        case .add:
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewsAddCell, for: indexPath) as! NewsAddTableViewCell
+            cell.newsmodel = NewModel[indexPath.row]
+            return cell
         }
         return UITableViewCell()
 
@@ -139,6 +156,8 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
             return 225
         case .News_weitou:
             return 237
+        case .add:
+            return 225
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -147,14 +166,4 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
     }
 }
 extension UITableViewCell {
-    fileprivate var lists : HomeNewsModel? {return self.lists}
-    var newsmodels : HomeNewsModel?{
-        get{
-            return lists
-        }
-        set{
-            self.newsmodels = newValue
-            
-        }
-    }
 }

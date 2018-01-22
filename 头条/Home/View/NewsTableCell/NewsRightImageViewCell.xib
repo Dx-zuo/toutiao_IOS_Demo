@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,7 +30,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GOX-tM-Blz">
                         <rect key="frame" x="218" y="21" width="86" height="77"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="86" id="bNz-Jc-qDA"/>
+                            <constraint firstAttribute="width" constant="86" id="lZg-oD-8wE"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天一日记" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxP-2Z-gjn">
@@ -53,34 +54,37 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3m-xp-2fC">
                         <rect key="frame" x="269" y="101" width="35" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="35" id="5zd-Ot-3ag"/>
-                            <constraint firstAttribute="height" constant="21" id="RxB-Ya-Cym"/>
+                            <constraint firstAttribute="width" constant="35" id="RZD-oD-jaj"/>
                         </constraints>
                         <state key="normal" image="add_textpage_17x12_"/>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="u3m-xp-2fC" secondAttribute="bottom" constant="3.5" id="4oB-u6-NZF"/>
-                    <constraint firstItem="yxP-2Z-gjn" firstAttribute="baseline" secondItem="FDr-1T-hw5" secondAttribute="baseline" id="EO9-s7-iUC"/>
-                    <constraint firstItem="u3m-xp-2fC" firstAttribute="top" secondItem="GOX-tM-Blz" secondAttribute="bottom" constant="3" id="FoG-9C-w31"/>
-                    <constraint firstItem="yxP-2Z-gjn" firstAttribute="leading" secondItem="kAn-bn-RiZ" secondAttribute="leadingMargin" id="Fw7-VQ-BCs"/>
-                    <constraint firstItem="GOX-tM-Blz" firstAttribute="trailing" secondItem="u3m-xp-2fC" secondAttribute="trailing" id="OoO-dp-5iN"/>
-                    <constraint firstItem="GOX-tM-Blz" firstAttribute="bottom" secondItem="4Tw-fR-ele" secondAttribute="bottom" id="YyX-kc-Pbh"/>
-                    <constraint firstItem="yxP-2Z-gjn" firstAttribute="top" secondItem="4Tw-fR-ele" secondAttribute="bottom" constant="8" symbolic="YES" id="aWf-lO-j16"/>
-                    <constraint firstItem="GOX-tM-Blz" firstAttribute="leading" secondItem="4Tw-fR-ele" secondAttribute="trailing" constant="7" id="csx-A5-Oag"/>
-                    <constraint firstItem="GOX-tM-Blz" firstAttribute="top" secondItem="kAn-bn-RiZ" secondAttribute="topMargin" constant="10" id="dHu-Ez-vpN"/>
-                    <constraint firstItem="yxP-2Z-gjn" firstAttribute="leading" secondItem="4Tw-fR-ele" secondAttribute="leading" id="frx-A2-2Hp"/>
-                    <constraint firstItem="GOX-tM-Blz" firstAttribute="top" secondItem="4Tw-fR-ele" secondAttribute="top" id="kdY-F7-PUU"/>
-                    <constraint firstAttribute="trailing" secondItem="u3m-xp-2fC" secondAttribute="trailing" constant="16" id="pIC-Vo-sVA"/>
-                    <constraint firstItem="eS9-Xh-lZE" firstAttribute="leading" secondItem="FDr-1T-hw5" secondAttribute="trailing" constant="8" symbolic="YES" id="qBA-dw-ktK"/>
-                    <constraint firstItem="FDr-1T-hw5" firstAttribute="leading" secondItem="yxP-2Z-gjn" secondAttribute="trailing" constant="8" symbolic="YES" id="yqh-fv-MdT"/>
-                    <constraint firstItem="yxP-2Z-gjn" firstAttribute="baseline" secondItem="eS9-Xh-lZE" secondAttribute="baseline" id="zaV-68-QI9"/>
+                    <constraint firstItem="4Tw-fR-ele" firstAttribute="leading" secondItem="yxP-2Z-gjn" secondAttribute="leading" id="0dh-q2-jUR"/>
+                    <constraint firstItem="4Tw-fR-ele" firstAttribute="leading" secondItem="kAn-bn-RiZ" secondAttribute="leadingMargin" id="1EI-wU-HJh"/>
+                    <constraint firstItem="GOX-tM-Blz" firstAttribute="trailing" secondItem="kAn-bn-RiZ" secondAttribute="trailingMargin" id="1wG-js-OH5"/>
+                    <constraint firstItem="eS9-Xh-lZE" firstAttribute="centerY" secondItem="u3m-xp-2fC" secondAttribute="centerY" id="24I-Cf-orV"/>
+                    <constraint firstItem="FDr-1T-hw5" firstAttribute="baseline" secondItem="eS9-Xh-lZE" secondAttribute="baseline" id="Cwd-0v-yj3"/>
+                    <constraint firstItem="u3m-xp-2fC" firstAttribute="top" secondItem="GOX-tM-Blz" secondAttribute="bottom" constant="3" id="GPf-Cx-sgK"/>
+                    <constraint firstItem="yxP-2Z-gjn" firstAttribute="baseline" secondItem="FDr-1T-hw5" secondAttribute="baseline" id="KPL-Og-wzh"/>
+                    <constraint firstItem="FDr-1T-hw5" firstAttribute="leading" secondItem="yxP-2Z-gjn" secondAttribute="trailing" constant="8" symbolic="YES" id="Kgc-3u-ctK"/>
+                    <constraint firstItem="4Tw-fR-ele" firstAttribute="top" secondItem="GOX-tM-Blz" secondAttribute="top" id="UX7-OH-1It"/>
+                    <constraint firstItem="eS9-Xh-lZE" firstAttribute="leading" secondItem="FDr-1T-hw5" secondAttribute="trailing" constant="8" symbolic="YES" id="Y5f-B5-en6"/>
+                    <constraint firstItem="FDr-1T-hw5" firstAttribute="baseline" secondItem="eS9-Xh-lZE" secondAttribute="firstBaseline" id="Y9c-se-QdE"/>
+                    <constraint firstItem="GOX-tM-Blz" firstAttribute="leading" secondItem="4Tw-fR-ele" secondAttribute="trailing" constant="7" id="c5w-zl-QHT"/>
+                    <constraint firstItem="yxP-2Z-gjn" firstAttribute="top" secondItem="4Tw-fR-ele" secondAttribute="bottom" constant="8" symbolic="YES" id="cBN-Su-czT"/>
+                    <constraint firstItem="4Tw-fR-ele" firstAttribute="bottom" secondItem="GOX-tM-Blz" secondAttribute="bottom" id="iCe-yj-DtE"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="yxP-2Z-gjn" secondAttribute="bottom" constant="-2" id="kWz-Jy-RVC"/>
+                    <constraint firstItem="FDr-1T-hw5" firstAttribute="baseline" secondItem="yxP-2Z-gjn" secondAttribute="firstBaseline" id="xGN-U8-mna"/>
+                    <constraint firstItem="GOX-tM-Blz" firstAttribute="trailing" secondItem="u3m-xp-2fC" secondAttribute="trailing" id="zKT-sd-rX1"/>
+                    <constraint firstItem="4Tw-fR-ele" firstAttribute="top" secondItem="kAn-bn-RiZ" secondAttribute="topMargin" constant="10" id="zdX-tY-ztc"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="W6p-Cb-98a"/>
             <connections>
                 <outlet property="Time" destination="eS9-Xh-lZE" id="AqA-fg-VqS"/>
                 <outlet property="comment_count" destination="FDr-1T-hw5" id="uzC-yY-Rd5"/>
+                <outlet property="image1" destination="GOX-tM-Blz" id="JH2-pL-Ksy"/>
                 <outlet property="source" destination="yxP-2Z-gjn" id="11b-KY-Lg8"/>
                 <outlet property="title" destination="4Tw-fR-ele" id="KwH-xd-iPe"/>
             </connections>

@@ -22,6 +22,8 @@ enum NewsType {
     case News_weitou
     ///置顶模式
     case Top
+    ///广告
+    case add
 }
 class HomeNewsModel: NSObject {
     //新闻类型
@@ -35,16 +37,15 @@ class HomeNewsModel: NSObject {
     //网页地址
     var share_url : String?
     //评论数
-    var comment_count : String?
+    var comment_count : Int?
     var commentCount: String? {
-        let count = JSON(comment_count).intValue
-        guard count != nil else {
+        let count = comment_count
+        if count == 0  {
             return "0"
+        }else if count! <= 10000  {
+            return "\(count!)"
         }
-        guard count >= 10000 else {
-            return String(describing: count)
-        }
-        return String(format: "%.1f万", Float(count) / 10000.0)
+        return String(format: "%.1f万", Float(count!) / 10000.0)
     }
     //文章id
     var item_id : String?
@@ -58,7 +59,7 @@ class HomeNewsModel: NSObject {
     var Time: String? {
         //创建时间
         var createDate: Date?
-        createDate = Date(timeIntervalSince1970: TimeInterval(exactly: JSON(behot_time).intValue)!)
+        createDate = Date(timeIntervalSince1970: TimeInterval(exactly: JSON(behot_time!).intValue)!)
         let fmt = DateFormatter()
         fmt.locale = Locale(identifier: "zh_CN")
         fmt.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -127,9 +128,13 @@ class HomeNewsModel: NSObject {
         //print(json)
         // 判断新闻类型
         //print("json[is_stick]",json["is_stick"])
-        if json["user"] != JSON.null {      //微头条
-            print("\(#line) \(#file) ", json)
+        if json["user"] != JSON.null && json["cell_type"] != JSON.null  {      //微头条
+            if let type = json["cell_type"].int {
+                if type == 32 {
+                    self.type = NewsType.News_weitou
+                }
 
+            }
         }else if json["is_stick"] != JSON.null {            //置顶
             self.type = NewsType.News_Text
         }else if json["source"].string  == "悟空问答" {  //问答
@@ -144,23 +149,33 @@ class HomeNewsModel: NSObject {
 //                print(json)
 //                print("json[\"image_list\"]   :" , json["image_list"].count)
 //                print("json[\"middle_image\"]  :" , json["middle_image"].count)
+            }else if json["image_list"].count == 5 {            ///
+                self.type = NewsType.News_three_image
             }else {
-                print("\(#line) \(#file) ", json)
+                Log(message: json["image_list"].count)
+                Log(message: json)
+
             }
         }else  if json["has_m3u8_video"] != JSON.null || json["has_mp4_video"]  != JSON.null || json["has_video"] != JSON.null {
-            if json["video_detail_info"] != JSON.null {   //侧栏视频
+            if json["video_detail_info"] != JSON.null && json["tag"].string == "video_military"  {
+                self.type = NewsType.News_video
+            }else if json["video_detail_info"] != JSON.null {                       //侧栏视频
                 self.type = NewsType.News_right_image
-            }else if json["image_list"] == JSON.null && json["middle_image"] == JSON.null { //普通cell 点击跳转网页
+            }else if json["show_more"]["title"].string == "更多小视频"  || json["show_more"]["title"].string == "精彩小视频"{                 //视频
+                Log(message: json)
+                 self.type = NewsType.News_video
+            }else if json["image_list"] == JSON.null && json["middle_image"] == JSON.null  && json["cell_type"].string == "48"{ //普通cell 点击跳转网页
                 self.type = NewsType.News_Text
             }else if json["middle_image"] != JSON.null {
                 self.type = NewsType.News_right_image
-                print("\(#line) \(#file) ", json)
-            }else {
-                print("\(#line) \(#file) ", json)
-
+                
+            }else if json["label"].string == "广告" {
+                self.type = NewsType.add
+            }else{
+            Log(message: json)
             }
         }else {
-            print("\(#line) \(#file) ", json)
+            Log(message: json)
 
         }
         
@@ -243,21 +258,22 @@ class HomeNewsModel: NSObject {
         if json["share_url"].string != nil  {
             self.share_url = json["share_url"].stringValue
         }
-        if json["comment_count"].isEmpty  {
-            self.comment_count = json["comment_count"].stringValue
+        if json["comment_count"] != JSON.null {
+            self.comment_count = json["comment_count"].intValue
+            Log(message: json["comment_count"].intValue)
         }
         if json["item_id"].string != nil  {
             self.item_id = json["item_id"].stringValue
         }
         
-        if json["image_list"].string != nil {
+        if json["image_list"] != JSON.null {
             let imageList = json["image_list"]
             for i in 0...imageList.count {
                 if let urlstring = imageList[i]["url"].string {
                     print("urlstring : ",urlstring)
                     if urlstring.hasSuffix(".webp"){
                         let index = urlstring.index(urlstring.endIndex, offsetBy: -5)
-                        image_list.append(urlstring.substring(to: index).replacingOccurrences(of: "http", with: "https"))
+                        image_list.append(urlstring.prefix(upTo: index).replacingOccurrences(of: "http", with: "https"))
                     }else{
                         image_list.append(urlstring as String)
                     }
@@ -291,7 +307,7 @@ extension String {
     func Urlformat() -> String {
         if self.hasSuffix(".webp"){
             let index = self.index(self.endIndex, offsetBy: -5)
-            return self.substring(to: index).replacingOccurrences(of: "http", with: "https")
+            return self.prefix(upTo: index).replacingOccurrences(of: "http", with: "https")
         }else{
             return self as String
         }
