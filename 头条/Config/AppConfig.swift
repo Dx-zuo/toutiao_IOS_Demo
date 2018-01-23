@@ -21,7 +21,7 @@ struct Con {
         static let URL = "https://is.snssdk.com/"
         static let device_id: Int = 6096495334
         static let iid: Int = 5034850950
-
+        static let defImage = "https://ww4.sinaimg.cn/large/0060lm7Tly1fnqb7n7ie2j30f007674q.jpg"
     }
     /// 屏幕的宽
     static let screenWidth = UIScreen.main.bounds.size.width

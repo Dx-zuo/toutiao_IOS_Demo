@@ -17,6 +17,9 @@ class RefreshFooterView: UIView {
         super.awakeFromNib()
         // Initialization code
     }
+    func setStatus(_ status : Refresh_FooterStatus , Offset:Float){
+        
+    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

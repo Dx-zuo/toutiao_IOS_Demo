@@ -6,79 +6,57 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsRightimageCell" rowHeight="125" id="U25-Qa-Iaj" customClass="NewsRightImageViewCell" customModule="头条" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsRightimageCell" rowHeight="116" id="U25-Qa-Iaj" customClass="NewsRightImageViewCell" customModule="头条" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="117"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U25-Qa-Iaj" id="kAn-bn-RiZ">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="125.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="116.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="别被粉底骗了，扒一扒女明星的真实肤色，杨幂是真白，唐嫣皮肤好" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Tw-fR-ele">
-                        <rect key="frame" x="16" y="21" width="195" height="77"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="别被粉底骗了，扒一扒女明星的真实肤色，杨幂是真白，唐嫣皮肤好" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Tw-fR-ele">
+                        <rect key="frame" x="16" y="21" width="226" height="65"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GOX-tM-Blz">
-                        <rect key="frame" x="218" y="21" width="86" height="77"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="86" id="lZg-oD-8wE"/>
-                        </constraints>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GOX-tM-Blz">
+                        <rect key="frame" x="250" y="21" width="105" height="84"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天一日记" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxP-2Z-gjn">
-                        <rect key="frame" x="16" y="106" width="46" height="11"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="每天一日记" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxP-2Z-gjn">
+                        <rect key="frame" x="16" y="94" width="46" height="11"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刚刚" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eS9-Xh-lZE">
-                        <rect key="frame" x="109" y="106" width="19" height="11"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="刚刚" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eS9-Xh-lZE">
+                        <rect key="frame" x="120" y="94" width="19" height="11"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDr-1T-hw5">
-                        <rect key="frame" x="70" y="106" width="31" height="11"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDr-1T-hw5">
+                        <rect key="frame" x="70" y="94" width="31" height="11"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3m-xp-2fC">
-                        <rect key="frame" x="269" y="101" width="35" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="35" id="RZD-oD-jaj"/>
-                        </constraints>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3m-xp-2fC">
+                        <rect key="frame" x="207" y="91" width="35" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" image="add_textpage_17x12_"/>
                     </button>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="4Tw-fR-ele" firstAttribute="leading" secondItem="yxP-2Z-gjn" secondAttribute="leading" id="0dh-q2-jUR"/>
-                    <constraint firstItem="4Tw-fR-ele" firstAttribute="leading" secondItem="kAn-bn-RiZ" secondAttribute="leadingMargin" id="1EI-wU-HJh"/>
-                    <constraint firstItem="GOX-tM-Blz" firstAttribute="trailing" secondItem="kAn-bn-RiZ" secondAttribute="trailingMargin" id="1wG-js-OH5"/>
-                    <constraint firstItem="eS9-Xh-lZE" firstAttribute="centerY" secondItem="u3m-xp-2fC" secondAttribute="centerY" id="24I-Cf-orV"/>
-                    <constraint firstItem="FDr-1T-hw5" firstAttribute="baseline" secondItem="eS9-Xh-lZE" secondAttribute="baseline" id="Cwd-0v-yj3"/>
-                    <constraint firstItem="u3m-xp-2fC" firstAttribute="top" secondItem="GOX-tM-Blz" secondAttribute="bottom" constant="3" id="GPf-Cx-sgK"/>
-                    <constraint firstItem="yxP-2Z-gjn" firstAttribute="baseline" secondItem="FDr-1T-hw5" secondAttribute="baseline" id="KPL-Og-wzh"/>
-                    <constraint firstItem="FDr-1T-hw5" firstAttribute="leading" secondItem="yxP-2Z-gjn" secondAttribute="trailing" constant="8" symbolic="YES" id="Kgc-3u-ctK"/>
-                    <constraint firstItem="4Tw-fR-ele" firstAttribute="top" secondItem="GOX-tM-Blz" secondAttribute="top" id="UX7-OH-1It"/>
-                    <constraint firstItem="eS9-Xh-lZE" firstAttribute="leading" secondItem="FDr-1T-hw5" secondAttribute="trailing" constant="8" symbolic="YES" id="Y5f-B5-en6"/>
-                    <constraint firstItem="FDr-1T-hw5" firstAttribute="baseline" secondItem="eS9-Xh-lZE" secondAttribute="firstBaseline" id="Y9c-se-QdE"/>
-                    <constraint firstItem="GOX-tM-Blz" firstAttribute="leading" secondItem="4Tw-fR-ele" secondAttribute="trailing" constant="7" id="c5w-zl-QHT"/>
-                    <constraint firstItem="yxP-2Z-gjn" firstAttribute="top" secondItem="4Tw-fR-ele" secondAttribute="bottom" constant="8" symbolic="YES" id="cBN-Su-czT"/>
-                    <constraint firstItem="4Tw-fR-ele" firstAttribute="bottom" secondItem="GOX-tM-Blz" secondAttribute="bottom" id="iCe-yj-DtE"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="yxP-2Z-gjn" secondAttribute="bottom" constant="-2" id="kWz-Jy-RVC"/>
-                    <constraint firstItem="FDr-1T-hw5" firstAttribute="baseline" secondItem="yxP-2Z-gjn" secondAttribute="firstBaseline" id="xGN-U8-mna"/>
-                    <constraint firstItem="GOX-tM-Blz" firstAttribute="trailing" secondItem="u3m-xp-2fC" secondAttribute="trailing" id="zKT-sd-rX1"/>
-                    <constraint firstItem="4Tw-fR-ele" firstAttribute="top" secondItem="kAn-bn-RiZ" secondAttribute="topMargin" constant="10" id="zdX-tY-ztc"/>
-                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="W6p-Cb-98a"/>
             <connections>
@@ -88,7 +66,7 @@
                 <outlet property="source" destination="yxP-2Z-gjn" id="11b-KY-Lg8"/>
                 <outlet property="title" destination="4Tw-fR-ele" id="KwH-xd-iPe"/>
             </connections>
-            <point key="canvasLocation" x="28" y="52"/>
+            <point key="canvasLocation" x="27.5" y="47.5"/>
         </tableViewCell>
     </objects>
     <resources>

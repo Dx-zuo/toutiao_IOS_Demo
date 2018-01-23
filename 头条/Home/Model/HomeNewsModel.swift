@@ -246,23 +246,23 @@ class HomeNewsModel: NSObject {
 //            print("tag json",json)
 //        }
         //标题 由于微头条的title值为空 所以加了一个保护条件
-        if json["title"].string != nil  {
+        if json["title"] != JSON.null  {
              self.title = json["title"].stringValue
         }else{
             
             print(json)
         }
-        if json["source"].string != nil  {
+        if json["source"] != JSON.null  {
             self.source = json["source"].stringValue
         }
-        if json["share_url"].string != nil  {
-            self.share_url = json["share_url"].stringValue
+        if json["share_url"] != JSON.null  {
+            self.share_url = json["share_url"].string
         }
         if json["comment_count"] != JSON.null {
             self.comment_count = json["comment_count"].intValue
             Log(message: json["comment_count"].intValue)
         }
-        if json["item_id"].string != nil  {
+        if json["item_id"] != JSON.null  {
             self.item_id = json["item_id"].stringValue
         }
         

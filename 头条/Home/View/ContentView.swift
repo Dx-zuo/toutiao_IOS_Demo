@@ -23,6 +23,7 @@ class ContentView: UIView {
     // MARK: - 定义属性
     /// 代理属性
     weak var delegate : ContentViewDelegate?
+    weak var Nodedelegate : HomeNewsViewController?
     /// 定义一个数组, 来存储所有的控制器
     fileprivate var childVCs: [UIViewController]
     
@@ -127,6 +128,7 @@ extension ContentView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCell, for: indexPath) as! ContentViewCell
+        cell.delegate = Nodedelegate
 //        cell.tid = channels[indexPath.row].tid
         
         /*

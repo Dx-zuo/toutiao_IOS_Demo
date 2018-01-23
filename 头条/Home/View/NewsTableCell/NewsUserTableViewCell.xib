@@ -190,7 +190,17 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="V1F-gE-Tz5"/>
             <connections>
-                <outlet property="username" destination="Bvq-65-kFd" id="vlf-O5-8sz"/>
+                <outlet property="avatarImageView" destination="vsF-B0-c3q" id="qlb-Tb-hHq"/>
+                <outlet property="closeButton" destination="Rd0-FU-dGm" id="Z3R-s6-9zX"/>
+                <outlet property="commentButton" destination="AHN-Az-VKf" id="PDQ-yG-VRG"/>
+                <outlet property="concernButton" destination="zrF-QJ-0Es" id="0qb-mO-yEl"/>
+                <outlet property="contentLabel" destination="8PW-oq-HbF" id="81j-qA-emv"/>
+                <outlet property="digButton" destination="Bx5-Zr-zRL" id="WvV-lm-Nrx"/>
+                <outlet property="feedshareButton" destination="cdA-h6-c2Y" id="McV-CS-EUt"/>
+                <outlet property="nameLabel" destination="Bvq-65-kFd" id="UuB-PG-dxz"/>
+                <outlet property="readCountLabel" destination="R2Z-sV-7db" id="ZXn-29-g9D"/>
+                <outlet property="verifiedContentLabel" destination="G7Z-iS-RKK" id="Kai-fj-OWG"/>
+                <outlet property="vipImageView" destination="0c5-EM-N54" id="ayz-Tk-VCe"/>
             </connections>
             <point key="canvasLocation" x="20" y="152"/>
         </tableViewCell>

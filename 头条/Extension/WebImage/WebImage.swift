@@ -5,110 +5,175 @@
 //  Created by Dx7d9 on 2018/1/22.
 //  Copyright © 2018年 Dx7d9. All rights reserved.
 //
-
+import Foundation
 import UIKit
 
-class URLImageView: UIImageView {
-    
-    let cache: NSCache<NSString, UIImage>
-    
-    var request: URLSessionDataTask?
-    
-    var placeholder: UIImage?
-    
-    var fadeIn: Bool = true
-    
-    var fadeDuration: Double = 0.3
-    
-    var startAlpha: CGFloat = 0.0
-    
-    fileprivate var callable: (() -> Void)?
-    
-    init() {
-        cache = NSCache()
+
+private let imageCache = NSCache<NSString, AnyObject>()
+
+public class ILSImageCache
+{
+    public static func setCacheSize(_numberofitemscachecanhold cacheItem:Int)
+    {
+        imageCache.totalCostLimit = cacheItem
+    }
+    public static func removeImageCaches()
+    {
+        imageCache.removeAllObjects()
         
-        super.init(image: nil)
     }
     
-    init(url: String, placeholder: UIImage? = nil) {
-        cache = NSCache()
+    public static func loadImageusingCache(withUrl urlString : String,completion:@escaping (_ status:Bool?,_ image:UIImage?)->())
+    {
+        let url = URL(string: urlString)
         
-        self.placeholder = placeholder
         
-        super.init(image: placeholder)
-        
-        guard let link = URL(string: url) else { return }
-        
-        from(url: link)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        cache = NSCache()
-        super.init(coder: aDecoder)
-    }
-    
-    public func setPlaceholderImage(_ img: UIImage) {
-        placeholder = img
-    }
-    
-    public func from(url: URL?, completionHandler: (() -> Void)? = nil) -> Void {
-        
-        if let _: URL = url {
+        // check cached image
+        if let cachedImage = imageCache.object(forKey: urlString as NSString) as? UIImage {
             
-            if fadeIn {
-                alpha = 0.0
+            completion(true,cachedImage)
+        }
+        
+        // if not, download image from url
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            if error != nil {
+                
+                completion(false,nil)
             }
             
-            if let fromCache: UIImage = cache.object(forKey: url!.absoluteString as NSString) {
-                image = fromCache
-                if fadeIn {
-                    UIView.animate(withDuration: self.fadeDuration, animations: {
-                        self.alpha = 1.0
-                    })
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data == nil ? Data() : data!) {
+                    imageCache.setObject(image, forKey: urlString as NSString)
+                    completion(true,image)
                 }
-                callable?()
-                return
             }
             
-            if let _ = placeholder {
-                image = placeholder
-            }
+        }).resume()
+    }
+}
+// MARK: - Extension For UIImageView
+public extension UIImageView
+{
+    
+    public enum AnimationTypes : String
+    {
+        case hideEffect,dissolve,none
+        
+    }
+    private func setAnimation(input:AnimationTypes)->UIViewAnimationOptions
+    {
+        switch input {
+        case .hideEffect:
             
-            let session: URLSession =  URLSession(configuration: URLSessionConfiguration.default)
+            return UIViewAnimationOptions.showHideTransitionViews
+        case .none:
+            return UIViewAnimationOptions.overrideInheritedOptions
+        default:
+            return UIViewAnimationOptions.transitionCrossDissolve
             
-            request = session.dataTask(with: url!) { data, response, error in
-                
-                guard error == nil else { return }
-                
-                DispatchQueue.main.async {
-                    
-                    self.image = UIImage(data: data!)
-                    
-                    if self.fadeIn {
-                        UIView.animate(withDuration: self.fadeDuration, animations: {
-                            self.alpha = 1.0
-                        })
-                    }
-                    
-                    if let _ = self.image {
-                        self.cache.setObject(self.image!, forKey: url!.absoluteString as NSString)
-                    }
-                    
-                    if let callable = completionHandler {
-                        callable()
-                    } else {
-                        self.callable?()
-                    }
-                    
-                }
-                
-            }
-            
-            request?.resume()
         }
     }
     
-    public func register(completionHandler: @escaping () -> Void) {
-        callable = completionHandler
+    public func loadImageUsingCache(withUrl urlString : String,placeholder:UIImage,animation:AnimationTypes) {
+        
+        let url = URL(string: urlString)
+        self.image = nil
+        
+        // check cached image
+        if let cachedImage = imageCache.object(forKey: urlString as NSString) as? UIImage {
+            UIView.transition(with: self, duration: 0.2, options: self.setAnimation(input: animation), animations: {
+                self.image = cachedImage
+            }, completion: nil)
+            
+            return
+        }
+        else
+        {
+            DispatchQueue.main.async {
+                self.image = placeholder
+            }
+        }
+        
+        // if not, download image from url
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.image = placeholder
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data!) {
+                    imageCache.setObject(image, forKey: urlString as NSString)
+                    UIView.transition(with: self, duration: 0.2, options: self.setAnimation(input: animation), animations: {
+                        self.image = image
+                    }, completion: nil)
+                    
+                }
+            }
+            
+        }).resume()
     }
 }
+// MARK: - Extension For UIButton
+public extension UIButton
+{
+    
+    public enum AnimationTypes : String
+    {
+        case hideEffect,dissolve
+        
+    }
+    private func setAnimation(input:AnimationTypes)->UIViewAnimationOptions
+    {
+        switch input {
+        case .hideEffect:
+            
+            return UIViewAnimationOptions.showHideTransitionViews
+        default:
+            return UIViewAnimationOptions.transitionCrossDissolve
+        }
+    }
+    
+    public func loadImageUsingCache(withUrl urlString : String,placeholder:UIImage,animation:AnimationTypes) {
+        
+        let url = URL(string: urlString)
+        self.setImage(placeholder, for: .normal)
+        
+        // check cached image
+        if let cachedImage = imageCache.object(forKey: urlString as NSString) as? UIImage {
+            
+            UIView.transition(with: self, duration: 0.2, options: self.setAnimation(input: animation), animations: {
+                self.setImage(cachedImage, for: .normal)
+            }, completion: nil)
+            
+            return
+        }
+        else
+        {
+            self.setImage(placeholder, for: .normal)
+        }
+        
+        // if not, download image from url
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            if error != nil {
+                
+                self.setImage(placeholder, for: .normal)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data!) {
+                    imageCache.setObject(image, forKey: urlString as NSString)
+                    UIView.transition(with: self, duration: 0.2, options: self.setAnimation(input: animation), animations: {
+                        self.setImage(image, for: .normal)
+                    }, completion: nil)
+                    
+                }
+            }
+            
+        }).resume()
+    }
+}
+

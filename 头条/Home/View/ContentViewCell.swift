@@ -7,8 +7,9 @@
 //
 
 import UIKit
-
+import SafariServices
 class ContentViewCell: UICollectionViewCell {
+    
     ///可复用Cell
     let NewsTxtTCell : String = "NewsTxtTCell"
     let NewsImageCell : String = "NewsImageCell"
@@ -16,8 +17,9 @@ class ContentViewCell: UICollectionViewCell {
     let NewsUserCell : String = "NewsUserCell"
     let NewsRightimageCell : String = "NewsRightimageCell"
     let NewsAddCell : String = "NewsAddCell"
-    
-    
+    //触摸状态
+    var IsTouch : Bool = false
+    weak var delegate : HomeNewsViewController? = nil
     var IsRef : Bool = true
     var NewModel :[HomeNewsModel] = []
     @IBOutlet weak var tableview: UITableView!
@@ -83,24 +85,54 @@ extension ContentViewCell{
     
 }
 extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
-    //界面滑动
+
+// MARK:  - 判断刷新视图状态
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        refresh_HeaderView.SetStatus(scrollView.contentOffset)
-        if scrollView.contentOffset.y <= -60.0 &&  IsRef {
-            IsRef = false
-            ToRequset.GetLoadNews(category: "__all__", listCount: 20) { (data) in
-                self.NewModel += data
+        // 开始滑动
+        if scrollView.contentOffset.y <= -10 && IsRef {     //顶部滑动
+            
+            if scrollView.contentOffset.y <= -10 && scrollView.contentOffset.y >= -60  {    //开始动画同步
                 
-                self.tableview.reloadData()
-                self.IsRef = true
+                refresh_HeaderView.setStatus(.waitRefresh, Offset: Float(scrollView.contentOffset.y))
+                
+            }else {      //完全滑动到顶  开始切换到刷新视图
+                refresh_HeaderView.setStatus(.refreshing, Offset: Float(scrollView.contentOffset.y))
+                if !refresh_HeaderView.superScrollView.isDragging {
+                    IsRef = false
+                    ToRequset.GetLoadNews(category: "__all__", listCount: 20) { (data) in
+                        self.NewModel += data
+                        self.tableview.reloadData()
+                        self.IsRef = true
+                        self.refresh_HeaderView.setStatus(.endRefresh, Offset: Float(scrollView.contentOffset.y))
+                    }
+                }
             }
+        }else if scrollView.contentSize.height - Con.screenWidth-84 <= scrollView.contentOffset.y && IsRef {     //下滑
+                Log(message: "开始上拉滑动")
+                IsRef = false
+                ToRequset.GetLoadNews(category: "__all__", listCount: 20) { (data) in
+                    self.NewModel += data
+                    self.tableview.reloadData()
+                    self.IsRef = true
+                }
         }
+//        refresh_HeaderView.setStatus(Float(scrollView.contentOffset.y))
+//        if scrollView.contentOffset.y <= -60.0 &&  IsRef {
+//            IsRef = false
+////            ToRequset.GetLoadNews(category: "__all__", listCount: 20) { (data) in
+////                self.NewModel += data
+////
+////                self.tableview.reloadData()
+////                self.IsRef = true
+////            }
+//        }
 //        print(scrollView.contentOffset)
 //        print(scrollView.contentSize)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return NewModel.count
     }
+// MARK: Cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let _ : UITableViewCell?
         guard NewModel[indexPath.row].type != nil else {
@@ -139,6 +171,7 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
         return UITableViewCell()
 
     }
+    ///  配置高度
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard NewModel[indexPath.row].type != nil else {
             return 30
@@ -157,13 +190,29 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
         case .News_weitou:
             return 237
         case .add:
-            return 225
+            return 159
         }
     }
+// MARK : - Cell点击跳转
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        ///
+        if NewModel[indexPath.row].type == NewsType.News_Text {
+            
+            //
+            let vc = UIStoryboard(name: "WebView", bundle: nil)
+            let webVc = vc.instantiateViewController(withIdentifier: "WebView_ID") as! WebViewController
+            webVc.newsmodel = NewModel[indexPath.row]
+            self.delegate?.navigationController?.pushViewController(webVc, animated: true)
+            
+        }else{
+            // 头条各种视图 ~ 太多辣  先只做个普通版本的
+            let vc = SFSafariViewController(url: URL(string: NewModel[indexPath.row].share_url ?? "https://baidu.com")!)
+            tableView.deselectRow(at: indexPath, animated: true)
+            self.delegate?.present(vc, animated: true, completion: nil)
+        }
+        
+        //SafariServices
         //print(indexPath.row)
     }
 }
-extension UITableViewCell {
-}
+

@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F10D60D420164AD300FC7AD3 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F137F19120164A8900779CC5 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F10DB5ED201617660038A0A3 /* log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DB5EC201617660038A0A3 /* log.swift */; };
 		F10DB5F02016290F0038A0A3 /* NewsAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DB5EE2016290F0038A0A3 /* NewsAddTableViewCell.swift */; };
 		F10DB5F12016290F0038A0A3 /* NewsAddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10DB5EF2016290F0038A0A3 /* NewsAddTableViewCell.xib */; };
-		F137F19220164A8900779CC5 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F137F19120164A8900779CC5 /* Kingfisher.framework */; };
+		F12778DA2016D7CD00FCAF8F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12778D92016D7CD00FCAF8F /* WebViewController.swift */; };
+		F12778DC2016DD1000FCAF8F /* showNewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12778DB2016DD1000FCAF8F /* showNewStatus.swift */; };
+		F12778E02017078A00FCAF8F /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F12778DF2017078A00FCAF8F /* WebView.storyboard */; };
+		F12778E22017098900FCAF8F /* demo.html in Resources */ = {isa = PBXBuildFile; fileRef = F12778E12017098900FCAF8F /* demo.html */; };
+		F12778E420170E8200FCAF8F /* news.css in Resources */ = {isa = PBXBuildFile; fileRef = F12778E320170E8200FCAF8F /* news.css */; };
 		F1441DEE201085E600974225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1441DED201085E600974225 /* AppDelegate.swift */; };
 		F1441DF0201085E600974225 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1441DEF201085E600974225 /* MainViewController.swift */; };
 		F1441DF3201085E600974225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1441DF1201085E600974225 /* Main.storyboard */; };
@@ -124,7 +127,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F10D60D420164AD300FC7AD3 /* Kingfisher.framework in Embed Frameworks */,
 				F1DA0E332014E38C00E7A7D9 /* RevealServer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -136,7 +138,11 @@
 		F10DB5EC201617660038A0A3 /* log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = log.swift; sourceTree = "<group>"; };
 		F10DB5EE2016290F0038A0A3 /* NewsAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAddTableViewCell.swift; sourceTree = "<group>"; };
 		F10DB5EF2016290F0038A0A3 /* NewsAddTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsAddTableViewCell.xib; sourceTree = "<group>"; };
-		F137F19120164A8900779CC5 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../Library/Developer/Xcode/DerivedData/Kingfisher-cuyqnxgflfptbpeqyvgacjvymibo/Build/Products/Debug-iphonesimulator/Kingfisher.framework"; sourceTree = "<group>"; };
+		F12778D92016D7CD00FCAF8F /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		F12778DB2016DD1000FCAF8F /* showNewStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showNewStatus.swift; sourceTree = "<group>"; };
+		F12778DF2017078A00FCAF8F /* WebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebView.storyboard; sourceTree = "<group>"; };
+		F12778E12017098900FCAF8F /* demo.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = demo.html; sourceTree = "<group>"; };
+		F12778E320170E8200FCAF8F /* news.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = news.css; sourceTree = "<group>"; };
 		F1441DEA201085E600974225 /* 头条.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "头条.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1441DED201085E600974225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1441DEF201085E600974225 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -237,7 +243,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F137F19220164A8900779CC5 /* Kingfisher.framework in Frameworks */,
 				F1DA0E392014E41C00E7A7D9 /* RevealServer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +264,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F12778D62016D78200FCAF8F /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				F12778D92016D7CD00FCAF8F /* WebViewController.swift */,
+				F12778DF2017078A00FCAF8F /* WebView.storyboard */,
+				F12778E12017098900FCAF8F /* demo.html */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		F1441DE1201085E500974225 = {
 			isa = PBXGroup;
 			children = (
@@ -318,12 +333,13 @@
 		F19A092320108E0700D4846A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F12778E320170E8200FCAF8F /* news.css */,
 				F1DA0E482015CDAE00E7A7D9 /* AImage */,
 				F1DA0E122014BA4000E7A7D9 /* RevealServer.framework */,
 				F1E72BDF20140F4A00E067D0 /* ToRequset.swift */,
 				F19A09412010C2A900D4846A /* SnapKit */,
 				F19A0926201090CE00D4846A /* WebImage */,
-				F19A0925201090C800D4846A /* JSON */,
+				F19A0925201090C800D4846A /* SwiftyJSON */,
 				F19A0924201090BE00D4846A /* Networking */,
 				F19A093D2010B11A00D4846A /* UIColor.swift */,
 				F19A093F2010B6D400D4846A /* UIivew.swift */,
@@ -345,12 +361,12 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		F19A0925201090C800D4846A /* JSON */ = {
+		F19A0925201090C800D4846A /* SwiftyJSON */ = {
 			isa = PBXGroup;
 			children = (
 				F1E72BE8201438FB00E067D0 /* JSON.swift */,
 			);
-			path = JSON;
+			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
 		F19A0926201090CE00D4846A /* WebImage */ = {
@@ -364,6 +380,7 @@
 		F19A09282010910800D4846A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F12778D62016D78200FCAF8F /* WebView */,
 				F1DA0E192014BC3000E7A7D9 /* Refreshview */,
 				F1E72BE7201436A800E067D0 /* NewsTableCell */,
 				F19A098D2010DC2900D4846A /* TitleView.swift */,
@@ -469,7 +486,6 @@
 		F1DA0E162014BA6700E7A7D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F137F19120164A8900779CC5 /* Kingfisher.framework */,
 				F1DA0E382014E41C00E7A7D9 /* RevealServer.framework */,
 				F1DA0E172014BA6700E7A7D9 /* RevealServer.framework */,
 			);
@@ -483,6 +499,7 @@
 				F1DA0E1E2014BF3000E7A7D9 /* RefreshHeaderView.swift */,
 				F1DA0E202014C1BC00E7A7D9 /* RefreshFooterView.xib */,
 				F1DA0E222014C1C400E7A7D9 /* RefreshFooterView.swift */,
+				F12778DB2016DD1000FCAF8F /* showNewStatus.swift */,
 			);
 			path = Refreshview;
 			sourceTree = "<group>";
@@ -623,6 +640,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1DA0E3F2014F5ED00E7A7D9 /* NewsRightImageViewCell.xib in Resources */,
+				F12778E22017098900FCAF8F /* demo.html in Resources */,
 				F19A09AA2010EEED00D4846A /* NewsUserTableViewCell.xib in Resources */,
 				F1441DFB201085E600974225 /* LaunchScreen.storyboard in Resources */,
 				F19A099E2010EE5900D4846A /* NewsTxtTableViewCell.xib in Resources */,
@@ -632,10 +650,12 @@
 				F19A09A22010EE7100D4846A /* NewsImageTableViewCell.xib in Resources */,
 				F19A09682010C2A900D4846A /* README.md in Resources */,
 				F19A09672010C2A900D4846A /* LICENSE in Resources */,
+				F12778E02017078A00FCAF8F /* WebView.storyboard in Resources */,
 				F10DB5F12016290F0038A0A3 /* NewsAddTableViewCell.xib in Resources */,
 				F1441DF3201085E600974225 /* Main.storyboard in Resources */,
 				F1E72BE620142D8600E067D0 /* ContentViewCell.xib in Resources */,
 				F1DA0E212014C1BC00E7A7D9 /* RefreshFooterView.xib in Resources */,
+				F12778E420170E8200FCAF8F /* news.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +686,7 @@
 				F19A097F2010C2A900D4846A /* ConstraintPriority.swift in Sources */,
 				F19A09872010C2A900D4846A /* LayoutConstraint.swift in Sources */,
 				F19A09832010C2A900D4846A /* ConstraintView+Extensions.swift in Sources */,
+				F12778DC2016DD1000FCAF8F /* showNewStatus.swift in Sources */,
 				F1DA0E3E2014F5ED00E7A7D9 /* NewsRightImageViewCell.swift in Sources */,
 				F1DA0E432015BAF600E7A7D9 /* Date.swift in Sources */,
 				F19A093C2010B0C900D4846A /* MainNavigationController.swift in Sources */,
@@ -715,6 +736,7 @@
 				F19A09892010C2A900D4846A /* Typealiases.swift in Sources */,
 				F1E72BE520142D8600E067D0 /* ContentViewCell.swift in Sources */,
 				F19A096A2010C2A900D4846A /* ConstraintAttributes.swift in Sources */,
+				F12778DA2016D7CD00FCAF8F /* WebViewController.swift in Sources */,
 				F19A097A2010C2A900D4846A /* ConstraintMakerFinalizable.swift in Sources */,
 				F1441DEE201085E600974225 /* AppDelegate.swift in Sources */,
 				F19A09882010C2A900D4846A /* LayoutConstraintItem.swift in Sources */,

@@ -15,6 +15,10 @@ class NewsRightImageViewCell: UITableViewCell {
             source.text = newsmodel?.source
             comment_count.text = (newsmodel?.commentCount)! + "评论"
             Time.text = newsmodel?.Time
+            if let url = newsmodel?.image {
+                guard url != "" else {return}
+                image1.loadImageUsingCache(withUrl: url, placeholder: #imageLiteral(resourceName: "loading_12x12_"), animation: UIImageView.AnimationTypes.dissolve)
+            }
             //self.image1.kf.setImage(with: URL(string: (newsmodel?.image)!))
         }
     }

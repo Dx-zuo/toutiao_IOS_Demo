@@ -19,8 +19,11 @@ class NewsImageTableViewCell: UITableViewCell {
 //            guard  newsmodel?.image_list.count != nil else {
 //                return
 //            }
-            Log(message: newsmodel?.jsondata!["image_list"].count)
-            if newsmodel?.image_list.count == 0 {return}
+            if newsmodel?.image_list.count == 0 || newsmodel?.image_list.count != 3 {return}
+            Image1.loadImageUsingCache(withUrl: JSON(newsmodel?.image_list[0] ?? Con.Url.defImage).stringValue, placeholder: #imageLiteral(resourceName: "wallpaper_profile"), animation: UIImageView.AnimationTypes.none)
+            Image2.loadImageUsingCache(withUrl: JSON(newsmodel?.image_list[1] ?? Con.Url.defImage).stringValue, placeholder: #imageLiteral(resourceName: "toutiaohao_34x14_"), animation: UIImageView.AnimationTypes.none)
+            Image3.loadImageUsingCache(withUrl: JSON(newsmodel?.image_list[2] ?? Con.Url.defImage).stringValue, placeholder: #imageLiteral(resourceName: "addpgc_subscribe_16x16_"), animation: UIImageView.AnimationTypes.none)
+//            Image1.image = URLImageView.init(url: ").image
 //            Image1.kf.setImage(with:URL(string: JSON(newsmodel?.image_list[0]).stringValue))
 //            Image2.kf.setImage(with:URL(string: JSON(newsmodel?.image_list[1]).stringValue))
 //            Image3.kf.setImage(with:URL(string: JSON(newsmodel?.image_list[2]).stringValue))
