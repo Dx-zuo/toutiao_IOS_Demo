@@ -9,12 +9,21 @@
 import UIKit
 
 class NewsAddTableViewCell: UITableViewCell {
-    var newsmodel : HomeNewsModel?
+    var newsmodel : HomeNewsModel?{
+        
+        didSet{
+            Log(message: newsmodel?.jsondata)
+
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var image1: UIImageView!
+    @IBOutlet weak var image2: UIImageView!
+    @IBOutlet weak var image3: UIImageView!
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

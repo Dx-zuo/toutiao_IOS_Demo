@@ -270,7 +270,6 @@ class HomeNewsModel: NSObject {
             let imageList = json["image_list"]
             for i in 0...imageList.count {
                 if let urlstring = imageList[i]["url"].string {
-                    print("urlstring : ",urlstring)
                     if urlstring.hasSuffix(".webp"){
                         let index = urlstring.index(urlstring.endIndex, offsetBy: -5)
                         image_list.append(urlstring.prefix(upTo: index).replacingOccurrences(of: "http", with: "https"))
