@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,17 +20,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wz2-k9-7Yi">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wz2-k9-7Yi">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cR-lo-dGu">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGY-sY-yPg">
+                                        <rect key="frame" x="334" y="14" width="33" height="33"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="33" id="kgK-tO-2Nx"/>
+                                        </constraints>
+                                        <state key="normal" image="add_channel_titlbar_thin_new_night_16x16_"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTq-Ie-280">
+                                        <rect key="frame" x="225" y="14" width="33" height="33"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="33" id="G93-gp-sh0"/>
+                                        </constraints>
+                                        <state key="normal" image="add_channel_titlbar_thin_new_night_16x16_"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YT5-Yg-4PK">
+                                        <rect key="frame" x="279" y="14" width="33" height="33"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="33" id="gRa-Xi-Gys"/>
+                                        </constraints>
+                                        <state key="normal" image="add_channel_titlbar_thin_new_night_16x16_"/>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nJw-dp-kel">
+                                        <rect key="frame" x="14" y="15" width="176" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="pTq-Ie-280" firstAttribute="leading" secondItem="nJw-dp-kel" secondAttribute="trailing" constant="35" id="Adf-F5-a2o"/>
+                                    <constraint firstItem="nJw-dp-kel" firstAttribute="leading" secondItem="3cR-lo-dGu" secondAttribute="leading" constant="14" id="D3P-ZI-qPc"/>
+                                    <constraint firstItem="vGY-sY-yPg" firstAttribute="leading" secondItem="YT5-Yg-4PK" secondAttribute="trailing" constant="22" id="GIv-UE-k5d"/>
+                                    <constraint firstItem="pTq-Ie-280" firstAttribute="top" secondItem="3cR-lo-dGu" secondAttribute="top" constant="14" id="Hvr-w9-NLi"/>
+                                    <constraint firstItem="YT5-Yg-4PK" firstAttribute="baseline" secondItem="pTq-Ie-280" secondAttribute="baseline" id="Lh0-pz-5nM"/>
+                                    <constraint firstItem="vGY-sY-yPg" firstAttribute="trailing" secondItem="3cR-lo-dGu" secondAttribute="trailingMargin" id="R3G-WU-sTq"/>
+                                    <constraint firstItem="YT5-Yg-4PK" firstAttribute="firstBaseline" secondItem="pTq-Ie-280" secondAttribute="firstBaseline" id="Wxf-bg-gPF"/>
+                                    <constraint firstItem="nJw-dp-kel" firstAttribute="centerY" secondItem="pTq-Ie-280" secondAttribute="centerY" id="X5m-k3-kRV"/>
+                                    <constraint firstItem="YT5-Yg-4PK" firstAttribute="leading" secondItem="pTq-Ie-280" secondAttribute="trailing" constant="21" id="cLA-WP-yor"/>
+                                    <constraint firstItem="vGY-sY-yPg" firstAttribute="firstBaseline" secondItem="YT5-Yg-4PK" secondAttribute="firstBaseline" id="efU-6t-aJ5"/>
+                                    <constraint firstItem="vGY-sY-yPg" firstAttribute="baseline" secondItem="pTq-Ie-280" secondAttribute="baseline" id="hHG-2h-vvk"/>
+                                    <constraint firstItem="YT5-Yg-4PK" firstAttribute="top" secondItem="vGY-sY-yPg" secondAttribute="top" id="lEq-JT-KAr"/>
+                                    <constraint firstItem="vGY-sY-yPg" firstAttribute="baseline" secondItem="YT5-Yg-4PK" secondAttribute="baseline" id="s4U-c1-Fqj"/>
+                                    <constraint firstItem="pTq-Ie-280" firstAttribute="top" secondItem="YT5-Yg-4PK" secondAttribute="top" id="tfn-pL-cHO"/>
+                                    <constraint firstAttribute="height" constant="60" id="uix-c8-FGz"/>
+                                    <constraint firstItem="nJw-dp-kel" firstAttribute="centerY" secondItem="3cR-lo-dGu" secondAttribute="centerY" id="w4G-CD-Zsi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wz2-k9-7Yi" firstAttribute="bottom" secondItem="TAC-Zg-sVI" secondAttribute="bottom" id="16Y-5t-Z5l"/>
+                            <constraint firstItem="wz2-k9-7Yi" firstAttribute="trailing" secondItem="3cR-lo-dGu" secondAttribute="trailing" id="4Bn-SB-2ix"/>
+                            <constraint firstItem="wz2-k9-7Yi" firstAttribute="top" secondItem="TAC-Zg-sVI" secondAttribute="top" constant="24" id="ERk-yS-sSl"/>
+                            <constraint firstItem="3cR-lo-dGu" firstAttribute="bottom" secondItem="TAC-Zg-sVI" secondAttribute="bottom" id="F86-H5-ny1"/>
+                            <constraint firstItem="3cR-lo-dGu" firstAttribute="leading" secondItem="TAC-Zg-sVI" secondAttribute="leading" id="HUc-a3-6zl"/>
+                            <constraint firstItem="3cR-lo-dGu" firstAttribute="trailing" secondItem="TAC-Zg-sVI" secondAttribute="trailing" id="ai5-sE-xnB"/>
+                            <constraint firstItem="wz2-k9-7Yi" firstAttribute="leading" secondItem="3cR-lo-dGu" secondAttribute="leading" id="hXH-4s-7gK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="TAC-Zg-sVI"/>
                     </view>
                     <connections>
@@ -40,4 +104,7 @@
             <point key="canvasLocation" x="908" y="-17.541229385307346"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add_channel_titlbar_thin_new_night_16x16_" width="16" height="16"/>
+    </resources>
 </document>

@@ -58,7 +58,9 @@ extension ContentViewCell{
         
         tableview.delegate = self
         tableview.dataSource = self
-        
+        //自动高度自适应
+        //tableview.rowHeight  = UITableViewAutomaticDimension
+        //tableview.estimatedRowHeight = 100
         //注册cell
         tableview.register(UINib(nibName: "NewsTxtTableViewCell", bundle: nil), forCellReuseIdentifier: NewsTxtTCell)
         tableview.register(UINib(nibName: "NewsImageTableViewCell", bundle: nil), forCellReuseIdentifier: NewsImageCell)
@@ -171,7 +173,13 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
         return UITableViewCell()
 
     }
-    ///  配置高度
+
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        fatalError("tableView(tableView:indexPath:) has not been implemented")
+//        return  100.0
+//    }
+
+    //  配置高度
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard NewModel[indexPath.row].type != nil else {
             return 30
@@ -196,14 +204,17 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
 // MARK : - Cell点击跳转
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ///
-        if NewModel[indexPath.row].type == NewsType.News_Text {
+        if NewModel[indexPath.row].type == NewsType.News_Text || NewModel[indexPath.row].type == NewsType.News_three_image || NewModel[indexPath.row].type == NewsType.News_right_image  {
             
             //
             let vc = UIStoryboard(name: "WebView", bundle: nil)
             let webVc = vc.instantiateViewController(withIdentifier: "WebView_ID") as! WebViewController
             webVc.newsmodel = NewModel[indexPath.row]
+            //隐藏tabbar
+            self.delegate?.hidesBottomBarWhenPushed = true
             self.delegate?.navigationController?.pushViewController(webVc, animated: true)
-            
+            //显示tabbar
+            self.delegate?.hidesBottomBarWhenPushed = false
         }else{
             // 头条各种视图 ~ 太多辣  先只做个普通版本的
             let vc = SFSafariViewController(url: URL(string: NewModel[indexPath.row].share_url ?? "https://baidu.com")!)

@@ -311,5 +311,38 @@ extension String {
             return self as String
         }
     }
-    
+    func Time()->String {
+            //创建时间
+        var createDate: Date?
+        createDate = Date(timeIntervalSince1970: TimeInterval(exactly: JSON(self).intValue)!)
+        let fmt = DateFormatter()
+        fmt.locale = Locale(identifier: "zh_CN")
+        fmt.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        //当前时间
+        let now = Date()
+        //日历
+        let calender = Calendar.current
+        let comps: DateComponents = calender.dateComponents([.year, .month, .day, .hour, .minute, .second], from: createDate!, to: now)
+
+        guard (createDate?.isThisYear())! else { // 今年
+            fmt.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            return fmt.string(from: createDate!)
+        }
+        if (createDate?.isYesterday())! { // 昨天
+            fmt.dateFormat = "昨天 HH:mm";
+            return fmt.string(from: createDate!)
+        } else if (createDate?.isToday())! {
+            if comps.hour! >= 1 {
+                return String(format: "%.d小时前", comps.hour!)
+            } else if comps.minute! >= 1 {
+                return String(format: "%d分钟前", comps.minute!)
+            } else {
+                return "刚刚";
+            }
+        } else {
+            fmt.dateFormat = "MM-dd HH:mm";
+            return fmt.string(from: createDate!)
+        }
+        return ""
+    }
 }
