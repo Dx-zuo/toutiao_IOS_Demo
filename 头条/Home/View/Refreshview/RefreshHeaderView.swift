@@ -121,6 +121,8 @@ extension RefreshHeaderView {
                 self.superScrollView.contentInset = UIEdgeInsets(top: self.superScrollView.contentInset.top - 44, left: self.superScrollView.contentInset.left, bottom: self.superScrollView.contentInset.bottom, right: self.superScrollView.contentInset.right)
                 // 开启滑动
                 self.isslide = true;
+                self.Image.stopAnimating()
+
             })
         }
         
