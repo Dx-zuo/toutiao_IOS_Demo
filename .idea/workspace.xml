@@ -4,14 +4,8 @@
     <list default="true" id="2405af4f-e095-4829-b154-5fbb36832d51" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/头条.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/头条.xcodeproj/project.pbxproj" />
-      <change beforePath="$PROJECT_DIR$/头条.xcodeproj/project.xcworkspace/xcuserdata/Dx7d9.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/头条.xcodeproj/project.xcworkspace/xcuserdata/Dx7d9.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change beforePath="$PROJECT_DIR$/头条/Extension/AImage/AImage.swift" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/头条/Extension/news.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/头条/Home/Controller/HomeNewsTableViewController.swift" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/头条/Home/Controller/HomeSearchViewController.swift" afterPath="$PROJECT_DIR$/头条/Home/Controller/HomeSearchViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/头条/Home/View/WebView/WebView.storyboard" afterPath="$PROJECT_DIR$/头条/Home/View/WebView/WebView.storyboard" />
-      <change beforePath="$PROJECT_DIR$/头条/Home/View/WebView/WebViewController.swift" afterPath="$PROJECT_DIR$/头条/Home/View/WebView/WebViewController.swift" />
-      <change beforePath="$PROJECT_DIR$/头条/Home/View/WebView/demo.html" afterPath="$PROJECT_DIR$/头条/Home/View/WebView/demo.html" />
+      <change beforePath="$PROJECT_DIR$/头条/Home/Model/HomeCellModel.swift" afterPath="$PROJECT_DIR$/头条/Home/Model/HomeCellModel.swift" />
+      <change beforePath="$PROJECT_DIR$/头条/Home/Model/HomePagesModel.swift" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,11 +17,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_13E585A9-9CD6-4725-A0D8-4005290ED7E7" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WebViewController.swift" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/头条/Home/View/WebView/WebViewController.swift">
+      <file leaf-file-name="NewsInfoModel.swift" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/头条/Home/Model/NewsInfoModel.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="99" column="5" lean-forward="true" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
+            <state relative-caret-position="-261">
+              <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -44,6 +38,7 @@
       <find>.article .article__content img</find>
       <find>content</find>
       <find>UIKeyboardFrameEndUserInfoKey</find>
+      <find>layout</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -64,6 +59,7 @@
         <option value="$PROJECT_DIR$/头条/Extension/log.swift" />
         <option value="$PROJECT_DIR$/头条/Home/Controller/HomeSearchViewController.swift" />
         <option value="$PROJECT_DIR$/头条/Home/View/WebView/WebViewController.swift" />
+        <option value="$PROJECT_DIR$/头条/Home/Model/HomeCellModel.swift" />
       </list>
     </option>
   </component>
@@ -111,12 +107,6 @@
               <item name="" type="efc3779f:XcodeRootNode" />
               <item name="头条" type="1d218c8b:XcodeProjectNode" />
               <item name="头条" type="fcab9f18:XcodeViewNode" />
-              <item name="Extension" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="头条" type="1d218c8b:XcodeProjectNode" />
-              <item name="头条" type="fcab9f18:XcodeViewNode" />
               <item name="Home" type="fcab9f18:XcodeViewNode" />
             </path>
             <path>
@@ -124,30 +114,7 @@
               <item name="头条" type="1d218c8b:XcodeProjectNode" />
               <item name="头条" type="fcab9f18:XcodeViewNode" />
               <item name="Home" type="fcab9f18:XcodeViewNode" />
-              <item name="Controller" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="头条" type="1d218c8b:XcodeProjectNode" />
-              <item name="头条" type="fcab9f18:XcodeViewNode" />
-              <item name="Home" type="fcab9f18:XcodeViewNode" />
-              <item name="View" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="头条" type="1d218c8b:XcodeProjectNode" />
-              <item name="头条" type="fcab9f18:XcodeViewNode" />
-              <item name="Home" type="fcab9f18:XcodeViewNode" />
-              <item name="View" type="fcab9f18:XcodeViewNode" />
-              <item name="Refreshview" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="头条" type="1d218c8b:XcodeProjectNode" />
-              <item name="头条" type="fcab9f18:XcodeViewNode" />
-              <item name="Home" type="fcab9f18:XcodeViewNode" />
-              <item name="View" type="fcab9f18:XcodeViewNode" />
-              <item name="WebView" type="fcab9f18:XcodeViewNode" />
+              <item name="Model" type="fcab9f18:XcodeViewNode" />
             </path>
           </expand>
           <select />
@@ -197,12 +164,12 @@
       <workItem from="1516763782870" duration="695000" />
       <workItem from="1516764594330" duration="400000" />
       <workItem from="1516765013934" duration="14812000" />
-      <workItem from="1516843381619" duration="7532000" />
+      <workItem from="1516843381619" duration="7650000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23439000" />
+    <option name="totallyTimeSpent" value="23557000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="443" y="27" width="1400" height="1057" extended-state="0" />
@@ -304,38 +271,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1332">
           <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/头条/Home/Model/HomeCellModel.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="35" column="35" lean-forward="false" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/头条/Home/Model/HomeNewsModel.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="344" column="9" lean-forward="false" selection-start-line="344" selection-start-column="9" selection-end-line="344" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/头条/Home/Model/HomePagesModel.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/头条/Home/Model/NewsInfoModel.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -529,8 +464,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/头条/Home/View/WebView/WebViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="99" column="5" lean-forward="true" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
+        <state relative-caret-position="431">
+          <caret line="94" column="1" lean-forward="true" selection-start-line="94" selection-start-column="1" selection-end-line="94" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/头条/Home/Model/HomeCellModel.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="51" column="5" lean-forward="false" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/头条/Home/Model/HomeNewsModel.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2808">
+          <caret line="344" column="9" lean-forward="false" selection-start-line="344" selection-start-column="9" selection-end-line="344" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/头条/Home/Model/HomePagesModel.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/头条/Home/Model/NewsInfoModel.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-261">
+          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
           <folding />
         </state>
       </provider>

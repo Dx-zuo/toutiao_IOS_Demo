@@ -98,7 +98,6 @@
 		F1E72BE520142D8600E067D0 /* ContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E72BE320142D8600E067D0 /* ContentViewCell.swift */; };
 		F1E72BE620142D8600E067D0 /* ContentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E72BE420142D8600E067D0 /* ContentViewCell.xib */; };
 		F1E72BE9201438FB00E067D0 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E72BE8201438FB00E067D0 /* JSON.swift */; };
-		F1F43C7F2012D0B900EA6D02 /* HomePagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F43C7E2012D0B900EA6D02 /* HomePagesModel.swift */; };
 		F1F43C832012D51600EA6D02 /* HomeNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F43C822012D51600EA6D02 /* HomeNewsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -232,7 +231,6 @@
 		F1E72BE320142D8600E067D0 /* ContentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewCell.swift; sourceTree = "<group>"; };
 		F1E72BE420142D8600E067D0 /* ContentViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentViewCell.xib; sourceTree = "<group>"; };
 		F1E72BE8201438FB00E067D0 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		F1F43C7E2012D0B900EA6D02 /* HomePagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePagesModel.swift; sourceTree = "<group>"; };
 		F1F43C822012D51600EA6D02 /* HomeNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNewsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -473,7 +471,6 @@
 			isa = PBXGroup;
 			children = (
 				F19A09AC2010FE1900D4846A /* HomeCellModel.swift */,
-				F1F43C7E2012D0B900EA6D02 /* HomePagesModel.swift */,
 				F1DA0E3A2014EB8A00E7A7D9 /* HomeNewsModel.swift */,
 				3F5A54985968B080132C45A0 /* NewsInfoModel.swift */,
 			);
@@ -708,7 +705,6 @@
 				F19A09702010C2A900D4846A /* ConstraintInsetTarget.swift in Sources */,
 				F19A0935201097B800D4846A /* SearchNavigationView.swift in Sources */,
 				F19A093E2010B11A00D4846A /* UIColor.swift in Sources */,
-				F1F43C7F2012D0B900EA6D02 /* HomePagesModel.swift in Sources */,
 				F10DB5ED201617660038A0A3 /* log.swift in Sources */,
 				F19A09402010B6D400D4846A /* UIivew.swift in Sources */,
 				F1DA0E1F2014BF3000E7A7D9 /* RefreshHeaderView.swift in Sources */,
