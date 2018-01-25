@@ -16,14 +16,21 @@ class WebViewController: UIViewController,WKNavigationDelegate{
         super.viewDidLoad()
         // 创建
         // 创建WKWebView
-        // 设置访问的URL
-        // 根据URL创建请求
+        // 设置访问的URL 根据URL创建请求
+        // 设置访问的URL 根据URL创建请求
         //loadHtml(item_seo_url: "6513449984514327053")
-        webview.navigationDelegate = self
         setup()
     }
+    //MARK : - 视图初始化
     private func setup() {
+        //注册
+        webview.navigationDelegate = self
 
+        //注册监听事件
+        NotificationCenter.default.addObserver(self,selector: #selector(WebViewController.keyboardWillChange(_:)),name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WebViewController.keyboardWillHiden(_:)), name: .UIKeyboardWillHide, object: nil)
+
+        //初始化
         if (newsmodel?.item_id) != nil {
             loadHtml(item_seo_url: (newsmodel?.item_id)!)}else if let path = Bundle.main.path(forResource: "demo", ofType: "html") {
         }
@@ -33,12 +40,6 @@ class WebViewController: UIViewController,WKNavigationDelegate{
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.hidesBottomBarWhenPushed = false
-    }
-
-    private func load(filePath: String) {
-        
-        let fileUrl = URL(fileURLWithPath: filePath)
-        webview.loadFileURL(fileUrl, allowingReadAccessTo: fileUrl)
     }
 
     func loadHtml(item_seo_url: String){
@@ -90,5 +91,20 @@ class WebViewController: UIViewController,WKNavigationDelegate{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+extension WebViewController {
+    //键盘开始
+    @objc func keyboardWillChange(_ notification:Notification){
+    Log(message: "弹出键盘")
+    }
+    //键盘消失
+    @objc func keyboardWillHiden(_ notification:Notification){
+    Log(message: "键盘消失")
+    }
+    //触摸事件
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.view.endEditing(true)
     }
 }

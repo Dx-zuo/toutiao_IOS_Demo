@@ -44,6 +44,6 @@ extension HomeSearchViewController{
 }
 extension HomeSearchViewController: SearchNavigationViewDelegate, UITextFieldDelegate {
     func cancelButtonClicked() {
-        navigationController?.popViewController(animated: false)
+        Log(message: "点击了搜索框")
     }
 }
