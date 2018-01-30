@@ -71,15 +71,17 @@ extension ContentViewCell{
         tableview.register(UINib(nibName: "NewsUserTableViewCell", bundle: nil), forCellReuseIdentifier: NewsUserCell)
         tableview.register(UINib(nibName: "NewsRightImageViewCell", bundle: nil), forCellReuseIdentifier:NewsRightimageCell)
         tableview.register(UINib(nibName: "NewsAddTableViewCell", bundle: nil), forCellReuseIdentifier:NewsAddCell)
-        //发起请求
         
-        ToRequset.GetLoadNews({ (data) in
+        //发起请求
+        ToRequset.getLoadNews({ (data) in
             self.NewModel = data
             
             self.tableview.reloadData()
         })
     }
 }
+
+// MARK: - 遵守 UITableViewDataSource,UITableViewDelegate
 extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,9 +94,6 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
         guard NewModel[indexPath.row].newsType != nil else {
             return UITableViewCell()
         }
-        let cell = UITableViewCell()
-        return cell
-        
         switch NewModel[indexPath.row].newsType! {
         case .newsRightImage:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsRightimageCell, for: indexPath) as! NewsRightImageViewCell
@@ -123,6 +122,9 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
         case .newsAdd:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsAddCell, for: indexPath) as! NewsAddTableViewCell
             cell.newsmodel = NewModel[indexPath.row]
+            return cell
+        default :
+            let cell = UITableViewCell()
             return cell
         }
     }
@@ -176,10 +178,16 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
         }
     }
 }
+
+// MARK: - 遵守 RefreshDelegate
 extension ContentViewCell : RefreshDelegate {
     
     func startLoading() {
-        
+        ToRequset.getLoadNews({ (data) in
+            self.NewModel = data
+            self.refreshHeaderView.setStatus(.endRefresh, Offset: 0.0)
+            self.tableview.reloadData()
+        })
     }
     
     func endLoading() {

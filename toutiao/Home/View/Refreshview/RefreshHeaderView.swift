@@ -9,7 +9,10 @@
 import UIKit
 
 protocol RefreshDelegate : class{
+    
+    /// 开始加载
     func startLoading()
+    /// 加载完成
     func endLoading()
 }
 
@@ -155,7 +158,6 @@ extension RefreshHeaderView {
             setStatus(.refreshing, Offset: Float(superScrollView.contentOffset.y))// 正在刷新状态
         }
     }
-    
     
     // MARK: - 移除 KVO 的监听
     override func removeObserver(_ observer: NSObject, forKeyPath keyPath: String) {

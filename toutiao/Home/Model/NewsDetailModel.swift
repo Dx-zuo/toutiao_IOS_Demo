@@ -4,8 +4,11 @@
 //
 
 import Foundation
-
-struct NewsDetailModel{
+// 新闻详情页model ~
+// 由于使用的setValuesForKeys进行转换 所以变量名称没有遵循驼峰命名法
+class NewsDetailModel : NSObject{
+    
+    /// 来源
     var detail_source : String?
     var media_user : Media_User?
     var publish_time : String?
@@ -17,6 +20,14 @@ struct NewsDetailModel{
     var source: String?
     var comment_count : String?
     var creator_uid : String?
+    
+    
+    /// 使用setvalue 转换
+    init(dic : [String:Any]) {
+        super.init()
+        setValuesForKeys(dic)
+        
+    }
     init(data : Data){
         let json = JSON(data)["data"]
         //
@@ -39,19 +50,19 @@ struct NewsDetailModel{
         if let comment = json["comment_count"].string{
             self.comment_count = comment
         }
-        if json["media_user"] != JSON.null {
-            self.media_user = Media_User(data: json["media_user"].arrayObject)
+        if let newarr =  json["media_user"].arrayObject {
+            self.media_user = Media_User(data: newarr)
         }
 
     }
 
 }
-struct  Media_User {
+class  Media_User {
     var avatar_url : String?
     var no_display_pgc_icon : Bool?
     var id : Int?
     var screen_name : String?
-    init (data : [Any]?){
+    init (data : [Any]){
         let json = JSON(data)
         self.avatar_url = json["avatar_url"].string
         self.no_display_pgc_icon = json["no_display_pgc_icon"].bool

@@ -10,7 +10,7 @@ import Foundation
 ///请求回调
 struct ToRequset {    
     ///   获取首页新闻推荐列表数据
-    static func GetLoadNews(_ completionHandler:@escaping ([NewsModel])-> Void){
+    static func getLoadNews(_ completionHandler:@escaping ([NewsModel])-> Void){
         let params = [
             "app_name": "news_article",
             "vid": "D1413B52-DC5C-4767-8369-B6FB8A06DFB0",
@@ -22,15 +22,13 @@ struct ToRequset {
             "concern_id": "6286225228934679042",
             "ts": "1516628639"]
         Network.request("https://lf.snssdk.com/api/news/feed/v75/", method: .get, parameters: params, headers: nil).responseJSON { (response) in
-            Log(message: response.result.value)
             if response.result.isSuccess , let value = response.result.value{
-                Log(message: response.request?.url)
                 let json = JSON(value)
                 guard json["message"] == "success" else { return }
                 guard let datas = json["data"].array else { return }
                 var newsdatalist : [NewsModel] = []
-                datas.flatMap({
-                    newsdatalist.append(NewsModel(json: $0["content"]))
+                datas.forEach({ (j) in
+                    newsdatalist.append(NewsModel(json: j["content"]))
                 })
                 completionHandler(newsdatalist)
             }

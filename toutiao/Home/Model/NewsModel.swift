@@ -25,7 +25,9 @@ enum NewsType {
     case newsAdd
 }
 
+/// 新闻数据模型
 class NewsModel: NSObject {
+    
     //新闻类型
     var tag : String?
     //type
@@ -61,11 +63,12 @@ class NewsModel: NSObject {
     
     init(json : JSON) {
         super.init()
+        Log(message: json)
         //save  数据存储在内部 ~ 按需格式化调用~
         self.jsonData = JSON(json)
         guard let data = jsonData else {return}
         //处理
-        self.title        = json["abstract"].stringValue
+        self.title        = data["title"].stringValue
         self.tag          = data["tag"].string
         self.source       = data["source"].string
         self.shareURL     = data["share_url"].string
@@ -94,7 +97,11 @@ extension NewsModel {
         if json["user"] != JSON.null && json["cell_type"] != JSON.null {
             return NewsType.newsWeitou
         }else if json["source"].string  == "悟空问答" || json["has_image"]  != JSON.null{
-            return NewsType.newsRightImage
+            if json["image_list"].count == 3 {
+                return NewsType.newsThreeImage
+            }else {
+                return NewsType.newsRightImage
+            }
         }else if json["label"].string == "广告" {
             return NewsType.newsAdd
         }else if json["video_detail_info"] != JSON.null{
@@ -143,7 +150,7 @@ extension NewsModel {
         }
     }
     
-    /// 格式化评论文本
+    /// 格式化评论数量  123455 -> 12.3万
     func getCommentCount(json: JSON) -> String? {
         let count = json.int
         guard let newcount = count else {return "0"}
