@@ -62,22 +62,26 @@ class NewsModel: NSObject {
     init(json : JSON) {
         super.init()
         //save  数据存储在内部 ~ 按需格式化调用~
-        self.jsonData = json
+        self.jsonData = JSON(json)
         guard let data = jsonData else {return}
         //处理
-        self.title  = data["title"].string
-        self.tag    = data["tag"].string
-        self.source = data["source"].string
-        self.shareURL = data["share_url"].string
-        self.commentCount = getCommentCount(json: data["comment_count"])
-        self.itemID = data["item_id"].string
-        self.imageURL = data["middle_image"]["url"].string
-        self.behotTime = getFormatDateTime(json: data["behot_time"])
-        self.userName = data["user"]["name"].string
-        self.avatarURL = data["user"]["avatar_url"].url
+        self.title        = json["abstract"].stringValue
+        self.tag          = data["tag"].string
+        self.source       = data["source"].string
+        self.shareURL     = data["share_url"].string
+        self.itemID       = data["item_id"].string
+        self.imageURL     = data["middle_image"]["url"].string
+        self.userName     = data["user"]["name"].string
+        self.avatarURL    = data["user"]["avatar_url"].url
         self.forwardCount = data["forward_info"]["forward_count"].string
-        self.diggCount = data["digg_count"].string
-        
+        self.diggCount    = data["digg_count"].string
+        self.behotTime    = getFormatDateTime(json: data["behot_time"])
+        self.commentCount = getCommentCount(json: data["comment_count"])
+        //
+        data["image_list"].forEach { (key,value) in
+            guard let newurl = value["url"].string else {return}
+            return imageURLList.append(newurl)
+        }
         //
         self.newsType = getNewsType(json: data)
     }

@@ -45,7 +45,6 @@
 		F12B3639201FBA8800AC910B /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3634201FBA8800AC910B /* Network.swift */; };
 		F12B363A201FBA8800AC910B /* Requset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3635201FBA8800AC910B /* Requset.swift */; };
 		F12B363B201FBA8800AC910B /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3636201FBA8800AC910B /* Response.swift */; };
-		F12B363C201FBA8800AC910B /* RevealServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12B3637201FBA8800AC910B /* RevealServer.framework */; };
 		F12B363D201FBA8800AC910B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3638201FBA8800AC910B /* Session.swift */; };
 		F12B3664201FBA8D00AC910B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F12B363F201FBA8D00AC910B /* LICENSE */; };
 		F12B3665201FBA8D00AC910B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F12B3640201FBA8D00AC910B /* README.md */; };
@@ -90,6 +89,7 @@
 		F149C2F0201FC03000D3560C /* showNewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F149C2EB201FC03000D3560C /* showNewStatus.swift */; };
 		F149C2F220200BA600D3560C /* NewsDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F149C2F120200BA500D3560C /* NewsDetailModel.swift */; };
 		F149C2F420201A7D00D3560C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F149C2F320201A7D00D3560C /* Date.swift */; };
+		F149C2F620202DC600D3560C /* UIivew.swift in Sources */ = {isa = PBXBuildFile; fileRef = F149C2F520202DC600D3560C /* UIivew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,6 +178,7 @@
 		F149C2EB201FC03000D3560C /* showNewStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = showNewStatus.swift; sourceTree = "<group>"; };
 		F149C2F120200BA500D3560C /* NewsDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailModel.swift; sourceTree = "<group>"; };
 		F149C2F320201A7D00D3560C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		F149C2F520202DC600D3560C /* UIivew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIivew.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,7 +186,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F12B363C201FBA8800AC910B /* RevealServer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,9 +211,9 @@
 		F12B35BF201F0BCE00AC910B /* toutiao */ = {
 			isa = PBXGroup;
 			children = (
+				F12B35D2201F0BD600AC910B /* Home */,
 				F12B35D4201F0BF000AC910B /* New Group */,
 				F12B35D3201F0BED00AC910B /* Extension */,
-				F12B35D2201F0BD600AC910B /* Home */,
 				F12B35C0201F0BCE00AC910B /* AppDelegate.swift */,
 				F12B35C2201F0BCE00AC910B /* MainViewController.swift */,
 				F12B35C4201F0BCE00AC910B /* Main.storyboard */,
@@ -227,9 +227,9 @@
 		F12B35D2201F0BD600AC910B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F12B35E3201F551500AC910B /* Controller */,
 				F12B35E9201F5D8C00AC910B /* Model */,
 				F12B35E8201F5D8800AC910B /* View */,
-				F12B35E3201F551500AC910B /* Controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -245,6 +245,7 @@
 				F12B35EE201F5F5000AC910B /* AppConfig.swift */,
 				F12B35F0201F62C500AC910B /* UIColor.swift */,
 				F149C2F320201A7D00D3560C /* Date.swift */,
+				F149C2F520202DC600D3560C /* UIivew.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -517,6 +518,7 @@
 				F12B3668201FBA8D00AC910B /* ConstraintConfig.swift in Sources */,
 				F12B3676201FBA8D00AC910B /* ConstraintMakerExtendable.swift in Sources */,
 				F12B3684201FBA8D00AC910B /* LayoutConstraint.swift in Sources */,
+				F149C2F620202DC600D3560C /* UIivew.swift in Sources */,
 				F12B35E2201F4E3000AC910B /* Log.swift in Sources */,
 				F12B361E201F67C600AC910B /* NewsRightImageViewCell.swift in Sources */,
 				F12B367B201FBA8D00AC910B /* ConstraintOffsetTarget.swift in Sources */,
@@ -692,6 +694,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 869TNSU33D;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -711,6 +714,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 869TNSU33D;
 				FRAMEWORK_SEARCH_PATHS = (

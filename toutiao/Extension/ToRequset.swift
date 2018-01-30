@@ -22,6 +22,7 @@ struct ToRequset {
             "concern_id": "6286225228934679042",
             "ts": "1516628639"]
         Network.request("https://lf.snssdk.com/api/news/feed/v75/", method: .get, parameters: params, headers: nil).responseJSON { (response) in
+            Log(message: response.result.value)
             if response.result.isSuccess , let value = response.result.value{
                 Log(message: response.request?.url)
                 let json = JSON(value)

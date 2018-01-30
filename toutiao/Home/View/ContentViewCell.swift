@@ -11,29 +11,29 @@ import SafariServices
 class ContentViewCell: UICollectionViewCell {
     
     ///可复用Cell
-    let NewsTxtTCell : String = "NewsTxtTCell"
-    let NewsImageCell : String = "NewsImageCell"
-    let NewsVideoTCell : String = "NewsVideoTCell"
-    let NewsUserCell : String = "NewsUserCell"
+    let NewsTxtTCell : String       = "NewsTxtTCell"
+    let NewsImageCell : String      = "NewsImageCell"
+    let NewsVideoTCell : String     = "NewsVideoTCell"
+    let NewsUserCell : String       = "NewsUserCell"
     let NewsRightimageCell : String = "NewsRightimageCell"
     let NewsAddCell : String = "NewsAddCell"
     
     //触摸状态
-    var IsTouch : Bool = false
+    var IsTouch : Bool                      = false
     weak var delegate : HomeViewController? = nil
-    var IsRef : Bool = true
-    var NewModel :[NewsModel] = []
+    var IsRef : Bool                        = true
+    var NewModel :[NewsModel]               = []
     @IBOutlet weak var tableview: UITableView!
     
     /// 刷新头部
-    fileprivate lazy var refresh_HeaderView: RefreshHeaderView = {
-        var refresh_HeaderView = RefreshHeaderView().loadview()
+    fileprivate lazy var refreshHeaderView: RefreshHeaderView = {
+        var refresh_HeaderView   = RefreshHeaderView().loadview()
         refresh_HeaderView.frame = CGRect(x: 0, y: -60, width: Con.screenWidth, height: 60.0)
         return refresh_HeaderView
     }()
     
     //刷新底部
-    fileprivate lazy var refresh_FooterView: RefreshFooterView = {
+    fileprivate lazy var refreshFooterView: RefreshFooterView = {
         var refresh_FooterView = RefreshFooterView().loadview()
         return refresh_FooterView
     }()
@@ -51,12 +51,12 @@ extension ContentViewCell{
     
     fileprivate func setupUI(){
         //添加控件
-        tableview.insertSubview(refresh_HeaderView, at: 0)
+        tableview.insertSubview(refreshHeaderView, at: 0)
         //不知道为什么 tableFooterView 直接赋值为refresh_FooterView 高度会显示错误 无奈 只好新建一个view上边添加
         let vc = UIView(frame: CGRect(x: 0.0, y: 0.0, width: Con.screenWidth, height: 60))
         tableview.tableFooterView = vc
-        vc.addSubview(refresh_FooterView)
-        refresh_FooterView.snp.makeConstraints { (make) in
+        vc.addSubview(refreshFooterView)
+        refreshFooterView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalTo(vc)
         }
         
@@ -72,6 +72,7 @@ extension ContentViewCell{
         tableview.register(UINib(nibName: "NewsRightImageViewCell", bundle: nil), forCellReuseIdentifier:NewsRightimageCell)
         tableview.register(UINib(nibName: "NewsAddTableViewCell", bundle: nil), forCellReuseIdentifier:NewsAddCell)
         //发起请求
+        
         ToRequset.GetLoadNews({ (data) in
             self.NewModel = data
             
@@ -91,6 +92,9 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
         guard NewModel[indexPath.row].newsType != nil else {
             return UITableViewCell()
         }
+        let cell = UITableViewCell()
+        return cell
+        
         switch NewModel[indexPath.row].newsType! {
         case .newsRightImage:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsRightimageCell, for: indexPath) as! NewsRightImageViewCell
@@ -172,4 +176,13 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
         }
     }
 }
-
+extension ContentViewCell : RefreshDelegate {
+    func startLoading() {
+        
+    }
+    
+    func endLoading() {
+        
+    }
+    
+}

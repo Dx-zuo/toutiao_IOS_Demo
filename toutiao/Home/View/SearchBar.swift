@@ -15,10 +15,8 @@ class SearchBar: UIView {
         let textField = UITextField()
         let searchIcon = UIImageView()
         searchIcon.image = #imageLiteral(resourceName: "searchicon_search_20x20_")
-        var tempFrame: CGRect = searchIcon.frame
-        tempFrame.size.height = 35
-        tempFrame.size.height = 35
-        searchIcon.frame = tempFrame
+        searchIcon.height = 35
+        searchIcon.width = 35
         searchIcon.contentMode = .center
         textField.leftView = searchIcon
         textField.leftViewMode = .always

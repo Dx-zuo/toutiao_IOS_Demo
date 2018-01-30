@@ -47,22 +47,22 @@ class ContentView: UIView {
         // UICollectionView 的layout 属性: 支持 Flow\ Custom 2中布局方式. 横排\纵排 -> 网格
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = (self?.bounds.size)!      // 设置单元格的大小
-        layout.minimumLineSpacing = 0               // 设置单元格之间的最小 行间距
-        layout.minimumInteritemSpacing = 0          // 设置单元格之间的最小 列间距
+        layout.itemSize                = (self?.bounds.size)!// 设置单元格的大小
+        layout.minimumLineSpacing      = 0// 设置单元格之间的最小 行间距
+        layout.minimumInteritemSpacing = 0// 设置单元格之间的最小 列间距
         layout.scrollDirection = .horizontal        // 设置布局方向为: 水平滚动
         
         // 创建UICollectionView
         // CGRect.zero: 是一个高度和宽度为零、位于(0，0)的矩形常量
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         
-        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        collectionView.backgroundColor = .white
-        collectionView.showsVerticalScrollIndicator = false    // 是否显示水平方向指示器
-        collectionView.isPagingEnabled = true                  // 是否分页显示
-        collectionView.bounces = false                         // 设置边缘是否弹动效果
-        collectionView.scrollsToTop = false                    // 设置点击状态栏是否回到顶部
-        collectionView.dataSource = self
+        collectionView.autoresizingMask             = [.flexibleHeight, .flexibleWidth]
+        collectionView.backgroundColor              = .white
+        collectionView.showsVerticalScrollIndicator = false// 是否显示水平方向指示器
+        collectionView.isPagingEnabled              = true// 是否分页显示
+        collectionView.bounces                      = false// 设置边缘是否弹动效果
+        collectionView.scrollsToTop                 = false// 设置点击状态栏是否回到顶部
+        collectionView.dataSource                   = self
         collectionView.delegate = self
         
         // 注册 cell.
@@ -165,37 +165,36 @@ extension ContentView: UICollectionViewDelegate {
         
         // 获取进度
         let currentOffsetX = scrollView.contentOffset.x
-        let ratio = currentOffsetX / scrollView.bounds.width
-        progress = ratio - floor(ratio)
-        
-        let scrollViewW = scrollView.bounds.width
+        let ratio          = currentOffsetX / scrollView.bounds.width
+        progress           = ratio - floor(ratio)
+        let scrollViewW    = scrollView.bounds.width
         
         // 判断滑动的方向. 左滑/右滑
         if currentOffsetX > startOffsetX { // 向左滑动
             // 1.计算progress
-            progress = currentOffsetX / scrollViewW - floor(currentOffsetX / scrollViewW)
-            
+            progress    = currentOffsetX / scrollViewW - floor(currentOffsetX / scrollViewW)
+
             // 2.计算sourceIndex
             sourceIndex = Int(currentOffsetX / scrollViewW)
-            
+
             // 3.计算targetIndex
             targetIndex = sourceIndex + 1
             if targetIndex >= childVCs.count {
-                targetIndex = childVCs.count - 1
+            targetIndex = childVCs.count - 1
             }
-            
+
             // 4.如果完全划过去
             if currentOffsetX - startOffsetX == scrollViewW {
-                progress = 1
-                targetIndex = sourceIndex
+            progress    = 1
+            targetIndex = sourceIndex
             }
         } else { // 右滑
             // 1.计算progress
-            progress = 1 - (currentOffsetX / scrollViewW - floor(currentOffsetX / scrollViewW))
-            
+            progress    = 1 - (currentOffsetX / scrollViewW - floor(currentOffsetX / scrollViewW))
+
             // 2.计算targetIndex
             targetIndex = Int(currentOffsetX / scrollViewW)
-            
+
             // 3.计算sourceIndex
             sourceIndex = targetIndex + 1
             if sourceIndex >= childVCs.count {
