@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsImageCell" rowHeight="157" id="KGk-i7-Jjw" customClass="NewsImageTableViewCell" customModule="头条" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsImageCell" rowHeight="157" id="KGk-i7-Jjw" customClass="NewsImageTableViewCell" customModule="toutiao" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="157"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -68,13 +68,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="Image1" destination="Vjx-b7-dxw" id="KWr-n1-x5n"/>
-                <outlet property="Image2" destination="lGt-ph-RBd" id="NXo-1A-bSJ"/>
-                <outlet property="Image3" destination="yqI-BF-y61" id="oRQ-sz-HsL"/>
-                <outlet property="Time" destination="KH3-BC-Qhw" id="MFa-RS-gMl"/>
-                <outlet property="comment_count" destination="LF9-9Z-ycJ" id="iGT-gy-kOU"/>
-                <outlet property="source" destination="GLv-wo-2cn" id="Im8-hU-Emj"/>
-                <outlet property="title" destination="mzi-Th-ISo" id="IdD-Yh-Wyi"/>
+                <outlet property="behotTimeLabel" destination="KH3-BC-Qhw" id="rou-Fe-Tl6"/>
+                <outlet property="commentCountLabel" destination="LF9-9Z-ycJ" id="N1g-xb-ugi"/>
+                <outlet property="newsImage1view" destination="Vjx-b7-dxw" id="o9d-Fa-tGV"/>
+                <outlet property="newsImage2view" destination="lGt-ph-RBd" id="rsu-Am-eWT"/>
+                <outlet property="newsImage3view" destination="yqI-BF-y61" id="G7C-2T-tYm"/>
+                <outlet property="sourceLabel" destination="GLv-wo-2cn" id="BE2-FO-7KL"/>
+                <outlet property="titleLabel" destination="mzi-Th-ISo" id="HlQ-uG-9xV"/>
             </connections>
             <point key="canvasLocation" x="-6.5" y="110.5"/>
         </tableViewCell>

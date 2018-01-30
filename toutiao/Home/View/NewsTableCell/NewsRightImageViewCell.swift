@@ -10,6 +10,7 @@ import UIKit
 class NewsRightImageViewCell: UITableViewCell {
     var newsmodel : NewsModel?{
         didSet{
+            titleLabel.text = newsmodel?.title ?? "这是一个右侧有图片的cell"
             /*
             title.text = newsmodel?.title
             source.text = newsmodel?.source
@@ -24,11 +25,11 @@ class NewsRightImageViewCell: UITableViewCell {
         }
     }
 
-    @IBOutlet weak var image1: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var source: UILabel!
-    @IBOutlet weak var comment_count: UILabel!
-    @IBOutlet weak var Time: UILabel!
+    @IBOutlet weak var newsImage1view: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var sourceLabel: UILabel!
+    @IBOutlet weak var commentCountLabel: UILabel!
+    @IBOutlet weak var behotTimeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

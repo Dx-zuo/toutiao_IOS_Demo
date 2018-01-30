@@ -4,7 +4,7 @@
 //
 
 import Foundation
-// 新闻详情页model ~
+// 新闻详情页model   ~
 // 由于使用的setValuesForKeys进行转换 所以变量名称没有遵循驼峰命名法
 class NewsDetailModel : NSObject{
     
@@ -50,7 +50,7 @@ class NewsDetailModel : NSObject{
         if let comment = json["comment_count"].string{
             self.comment_count = comment
         }
-        if let newarr =  json["media_user"].arrayObject {
+        if let newarr =  json["media_user"].array {
             self.media_user = Media_User(data: newarr)
         }
 

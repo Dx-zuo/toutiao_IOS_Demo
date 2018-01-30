@@ -61,11 +61,13 @@ class NewsModel: NSObject {
     //保存原始数据
     var jsonData : JSON?
     
-    init(json : JSON) {
+    init(dic : Data) {
         super.init()
-        Log(message: json)
         //save  数据存储在内部 ~ 按需格式化调用~
-        self.jsonData = JSON(json)
+        //还是不知道原生数据的具体格式~ 所以假设每次获取到数据之后 全部存储于本地的sqllite
+        //使用时 只将所需要的字段反序列化出来
+        self.jsonData = JSON(dic)
+        //
         guard let data = jsonData else {return}
         //处理
         self.title        = data["title"].stringValue
@@ -85,13 +87,14 @@ class NewsModel: NSObject {
             guard let newurl = value["url"].string else {return}
             return imageURLList.append(newurl)
         }
-        //
+        //计算
         self.newsType = getNewsType(json: data)
     }
 }
 
 // MARK: - 辅助方法
 extension NewsModel {
+
     /// 计算新闻数据类型
     func getNewsType(json: JSON) -> NewsType {
         if json["user"] != JSON.null && json["cell_type"] != JSON.null {
@@ -160,6 +163,16 @@ extension NewsModel {
             return "\(newcount)"
         }
         return String(format: "%.1f万", Float(newcount) / 10000.0)
+    }
+    
+    /// 获取解包值
+    func getStringValue(_ key: String) -> String {
+        switch self.value(forKey: key)  {
+        case let str as String:
+            return str
+        default:
+            return ""
+        }
     }
 }
 

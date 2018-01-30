@@ -11,6 +11,10 @@ import UIKit
 class NewsTxtTableViewCell: UITableViewCell {
     var newsmodel : NewsModel?{
         didSet{
+            if let newtitle = newsmodel?.title {
+                titleLabel.text = newtitle
+            }
+            
             /*
             title.text = newsmodel?.title
             source.text = newsmodel?.source
@@ -29,11 +33,11 @@ class NewsTxtTableViewCell: UITableViewCell {
         }
     }
 
-    @IBOutlet weak var Time: UILabel!
-    @IBOutlet weak var comment_count: UILabel!
-    @IBOutlet weak var source: UILabel!
-    @IBOutlet weak var stick_label: UILabel!
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var behotTimeLabel: UILabel!
+    @IBOutlet weak var commentCountLabel: UILabel!
+    @IBOutlet weak var sourceLabel: UILabel!
+    @IBOutlet weak var stickLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

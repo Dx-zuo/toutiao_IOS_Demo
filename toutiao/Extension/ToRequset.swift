@@ -27,8 +27,9 @@ struct ToRequset {
                 guard json["message"] == "success" else { return }
                 guard let datas = json["data"].array else { return }
                 var newsdatalist : [NewsModel] = []
-                datas.forEach({ (j) in
-                    newsdatalist.append(NewsModel(json: j["content"]))
+                
+                datas.flatMap({
+                    newsdatalist.append(NewsModel(dic: ($0["content"].string?.data(using: String.Encoding.utf8))!))
                 })
                 completionHandler(newsdatalist)
             }

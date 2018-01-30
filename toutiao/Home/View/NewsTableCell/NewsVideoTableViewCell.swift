@@ -11,14 +11,22 @@ import UIKit
 class NewsVideoTableViewCell: UITableViewCell {
     var newsmodel : NewsModel?{
         didSet{
+            titleLabel.text = newsmodel?.title
+            let image = UIImageView()
+            guard let newimageUrl = newsmodel?.imageURL else {
+                return
+            }
+            image.loadImageUsingCache(withUrl: newimageUrl, placeholder: #imageLiteral(resourceName: "user"), animation: .dissolve)
+            image.frame = newsVideoview.frame
+            newsVideoview.addSubview(image)
         }
     }
 
-    @IBOutlet weak var Video: UIView!
-    @IBOutlet weak var Time: UILabel!
-    @IBOutlet weak var comment_count: UILabel!
-    @IBOutlet weak var source: UILabel!
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var newsVideoview: UIView!
+    @IBOutlet weak var behotTimeLabel: UILabel!
+    @IBOutlet weak var commentCountLabel: UILabel!
+    @IBOutlet weak var sourceLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

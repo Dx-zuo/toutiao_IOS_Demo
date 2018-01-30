@@ -11,6 +11,10 @@ import UIKit
 class NewsUserTableViewCell: UITableViewCell {
     var newsmodel : NewsModel?{
         didSet{
+            guard let jsondata = JSON(newsmodel?.jsonData ?? "这是一个微头条的cell")["content"].string  else {
+                return
+            }
+            contentLabel.text = jsondata
             //Log(message: newsmodel?.jsondata)
             /*
             avatarImageView.loadImageUsingCache(withUrl: JSON(newsmodel?.jsondata!["user"]["avatar_url"]).stringValue, placeholder: #imageLiteral(resourceName: "user"), animation: UIImageView.AnimationTypes.dissolve)

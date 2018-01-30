@@ -10,8 +10,10 @@ import Foundation
 
 ///日志
 func Log<T>(message: T,fileName:String = #file,methodName : String = #function , lineNumber : Int = #line){
+    #if DEBUG
     let fileName = (fileName as NSString).lastPathComponent
     print("\(fileName)\(methodName)[\(lineNumber)]:\(message)")
+    #endif
 }
 
 

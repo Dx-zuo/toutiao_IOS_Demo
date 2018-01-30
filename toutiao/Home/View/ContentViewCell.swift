@@ -16,7 +16,7 @@ class ContentViewCell: UICollectionViewCell {
     let NewsVideoTCell : String     = "NewsVideoTCell"
     let NewsUserCell : String       = "NewsUserCell"
     let NewsRightimageCell : String = "NewsRightimageCell"
-    let NewsAddCell : String = "NewsAddCell"
+    let NewsAddCell : String        = "NewsAddCell"
     
     //触摸状态
     var IsTouch : Bool                      = false
@@ -27,9 +27,10 @@ class ContentViewCell: UICollectionViewCell {
     
     /// 刷新头部
     fileprivate lazy var refreshHeaderView: RefreshHeaderView = {
-        var refresh_HeaderView   = RefreshHeaderView().loadview()
-        refresh_HeaderView.frame = CGRect(x: 0, y: -60, width: Con.screenWidth, height: 60.0)
-        return refresh_HeaderView
+        var refreshHeaderView   = RefreshHeaderView().loadview()
+        refreshHeaderView.delegate = self
+        refreshHeaderView.frame = CGRect(x: 0, y: -60, width: Con.screenWidth, height: 60.0)
+        return refreshHeaderView
     }()
     
     //刷新底部
@@ -183,15 +184,19 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
 extension ContentViewCell : RefreshDelegate {
     
     func startLoading() {
-        ToRequset.getLoadNews({ (data) in
-            self.NewModel = data
-            self.refreshHeaderView.setStatus(.endRefresh, Offset: 0.0)
-            self.tableview.reloadData()
-        })
+        Log(message: "开始刷新")
+        if IsRef {
+            self.IsRef = false
+            ToRequset.getLoadNews({ (data) in
+                self.NewModel = data
+                self.IsRef = true
+                self.refreshHeaderView.setStatus(.endRefresh, Offset: 0.0)
+            })
+        }
     }
     
     func endLoading() {
-        
+        self.tableview.reloadData()
     }
     
 }

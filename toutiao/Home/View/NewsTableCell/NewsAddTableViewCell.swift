@@ -12,18 +12,18 @@ class NewsAddTableViewCell: UITableViewCell {
     var newsmodel : NewsModel?{
         
         didSet{
-            Log(message: newsmodel?.jsonData)
-
+            titleLabel.text = newsmodel?.title ?? "这是一个广告"
+            
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var image1: UIImageView!
-    @IBOutlet weak var image2: UIImageView!
-    @IBOutlet weak var image3: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var newsImage1view: UIImageView!
+    @IBOutlet weak var newsImage2view: UIImageView!
+    @IBOutlet weak var newsImage3view: UIImageView!
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

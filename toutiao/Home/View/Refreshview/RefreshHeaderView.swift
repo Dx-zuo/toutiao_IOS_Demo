@@ -54,7 +54,9 @@ class RefreshHeaderView: UIView {
             }
             break
         case .refreshing:
-            setRefreshingStatus()
+            if isRefsh{
+                setRefreshingStatus()
+            }
             break
         case .endRefresh:
             endRefreshing()
@@ -85,7 +87,7 @@ extension RefreshHeaderView {
             return
         }
         //开始刷新
-        delegate?.startLoading()
+        isRefsh = false //
         headerRefreshStatus = RefreshHeaderStatus.refreshing
         Title.text = "推荐中"
         let animation = CAKeyframeAnimation(keyPath: "position")
@@ -104,8 +106,8 @@ extension RefreshHeaderView {
             }
             // 禁止滑动
             isslide = false
+            delegate?.startLoading()
         }
-        
     }
     
     // MARK: 结束刷新
@@ -118,10 +120,10 @@ extension RefreshHeaderView {
                 // 开启滑动
                 self.isslide = true;
                 self.Image.stopAnimating()
+                self.isRefsh = true
+                self.delegate?.endLoading()
             })
         }
-        delegate?.endLoading()
-        
     }
     
     // 控件将要添加到父控件时, 调用此函数
@@ -143,19 +145,19 @@ extension RefreshHeaderView {
         if self.superScrollView.isDragging {
             //开始滑动
             if self.superScrollView.contentOffset.y <= -10 {
+                // 滑动值 -10 ~ -60 之间 播放图片动画 不刷新
                 if self.superScrollView.contentOffset.y <= -10 && superScrollView.contentOffset.y >= -60{
                     //开始播放动画
                     self.setStatus(.waitRefresh, Offset: Float(self.superScrollView.contentOffset.y))
-                }else{
-                    self.setStatus(.refreshing, Offset: Float(self.superScrollView.contentOffset.y))
                 }
             } else if  self.superScrollView.contentOffset.y <= superScrollView.contentSize.height - Con.screenWidth-84  {
-                delegate?.startLoading()
             }
         }
         // MARK: - 手指松开:
-        if headerRefreshStatus == RefreshHeaderStatus.waitRefresh {
-            setStatus(.refreshing, Offset: Float(superScrollView.contentOffset.y))// 正在刷新状态
+        if headerRefreshStatus == RefreshHeaderStatus.waitRefresh && isRefsh{
+            Log(message: "手指松开")
+            // 正在刷新状态
+            setStatus(.refreshing, Offset: Float(superScrollView.contentOffset.y))
         }
     }
     
