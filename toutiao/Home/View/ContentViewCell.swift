@@ -177,6 +177,7 @@ extension ContentViewCell :UITableViewDataSource,UITableViewDelegate{
     }
 }
 extension ContentViewCell : RefreshDelegate {
+    
     func startLoading() {
         
     }
